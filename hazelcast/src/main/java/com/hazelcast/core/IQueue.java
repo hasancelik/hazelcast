@@ -53,6 +53,18 @@ public interface IQueue<E> extends BlockingQueue<E>, BaseQueue<E>, ICollection<E
 
     E take() throws InterruptedException;
 
+    @Override
+    boolean add(E e);
+
+    @Override
+    boolean offer(E e);
+
+    @Override
+    void put(E e) throws InterruptedException;
+
+    @Override
+    boolean offer(E e, long timeout, TimeUnit unit) throws InterruptedException;
+
     /**
      * Returns LocalQueueStats for this queue.
      * LocalQueueStats is the statistics for the local portion of this
