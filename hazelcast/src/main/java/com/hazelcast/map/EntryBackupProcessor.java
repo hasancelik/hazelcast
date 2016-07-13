@@ -36,5 +36,6 @@ import java.util.Map;
  */
 public interface EntryBackupProcessor<K, V> extends Serializable {
 
+
     void processBackup(Map.Entry<K, V> entry);
 }

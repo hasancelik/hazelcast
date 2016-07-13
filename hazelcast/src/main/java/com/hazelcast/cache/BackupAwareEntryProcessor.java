@@ -41,6 +41,7 @@ import javax.cache.processor.EntryProcessor;
 public interface BackupAwareEntryProcessor<K, V, T>
         extends EntryProcessor<K, V, T> {
 
+
     /**
      * Either creates a new, specialized {@link javax.cache.processor.EntryProcessor}
      * to be executed on the backup-partition, or returns <pre>this</pre> to execute
