@@ -70,7 +70,7 @@ public abstract class AbstractQueryCacheTestSupport extends HazelcastTestSupport
         QueryCacheConfig queryCacheConfig = new QueryCacheConfig(cacheName);
         queryCacheConfig.getPredicateConfig().setImplementation(predicate);
         queryCacheConfig.setInMemoryFormat(getInMemoryFormat());
-        config.getMapConfig(mapName).addQueryCacheConfig(queryCacheConfig);
+        config.getMapConfiguration(mapName).addQueryCacheConfig(queryCacheConfig);
 
         return factory.newInstances(config)[0].getMap(mapName);
     }

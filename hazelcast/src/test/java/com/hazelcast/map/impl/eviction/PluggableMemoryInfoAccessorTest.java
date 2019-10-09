@@ -56,7 +56,7 @@ public class PluggableMemoryInfoAccessorTest extends HazelcastTestSupport {
         maxSizeConfig.setSize(50);
 
         Config config = getConfig();
-        config.getMapConfig("test").setEvictionPolicy(LFU).setMaxSizeConfig(maxSizeConfig);
+        config.getMapConfiguration("test").setEvictionPolicy(LFU).setMaxSizeConfig(maxSizeConfig);
 
         HazelcastInstance node = createHazelcastInstance(config);
         IMap map = node.getMap("test");

@@ -408,7 +408,7 @@ public class EvictionMaxSizePolicyTest extends HazelcastTestSupport {
         msc.setMaxSizePolicy(maxSizePolicy);
         msc.setSize(maxSize);
 
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         mapConfig.setEvictionPolicy(EvictionPolicy.LRU);
         mapConfig.setMaxSizeConfig(msc);
 

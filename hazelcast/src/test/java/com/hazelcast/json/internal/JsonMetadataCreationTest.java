@@ -279,15 +279,15 @@ public class JsonMetadataCreationTest extends HazelcastTestSupport {
     protected Config getConfig() {
         Config config = new Config();
         config.setProperty(GroupProperty.PARTITION_COUNT.getName(), "" + getPartitionCount());
-        config.getMapConfig("default")
+        config.getMapConfiguration("default")
                 .setBackupCount(getNodeCount() - 1)
                 .setAsyncBackupCount(0)
                 .setInMemoryFormat(getInMemoryFormat())
                 .setMetadataPolicy(MetadataPolicy.CREATE_ON_UPDATE);
-        config.getMapConfig("noprocessing*")
+        config.getMapConfiguration("noprocessing*")
                 .setMetadataPolicy(MetadataPolicy.OFF)
                 .setInMemoryFormat(getInMemoryFormat());
-        config.getMapConfig("mapStore*")
+        config.getMapConfiguration("mapStore*")
                 .setInMemoryFormat(getInMemoryFormat())
                 .setMapStoreConfig(new MapStoreConfig()
                         .setImplementation(new JsonMapLoader())

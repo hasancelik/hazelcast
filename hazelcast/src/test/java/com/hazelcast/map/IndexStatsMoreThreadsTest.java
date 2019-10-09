@@ -65,7 +65,7 @@ public class IndexStatsMoreThreadsTest extends HazelcastTestSupport {
         mapName = randomMapName();
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setInMemoryFormat(inMemoryFormat);
+        config.getMapConfiguration(mapName).setInMemoryFormat(inMemoryFormat);
 
         instance = createHazelcastInstance(config);
         map = instance.getMap(mapName);

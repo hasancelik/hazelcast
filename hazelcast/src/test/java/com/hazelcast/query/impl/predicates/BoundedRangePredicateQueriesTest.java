@@ -69,7 +69,7 @@ public class BoundedRangePredicateQueriesTest extends HazelcastTestSupport {
     @Before
     public void before() {
         Config config = getConfig();
-        config.getMapConfig("persons").setInMemoryFormat(inMemoryFormat);
+        config.getMapConfiguration("persons").setInMemoryFormat(inMemoryFormat);
 
         map = createHazelcastInstance(config).getMap("persons");
         map.addIndex(IndexType.HASH, "age");

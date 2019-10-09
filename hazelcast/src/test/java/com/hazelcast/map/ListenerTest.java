@@ -89,7 +89,7 @@ public class ListenerTest extends HazelcastTestSupport {
         final CountDownLatch latch = new CountDownLatch(1);
         String name = randomString();
         Config config = getConfig();
-        MapConfig mapConfig = config.getMapConfig(name);
+        MapConfig mapConfig = config.getMapConfiguration(name);
         EntryListenerConfig entryListenerConfig = new EntryListenerConfig();
         entryListenerConfig.setImplementation(new EntryAdapter() {
             public void entryAdded(EntryEvent event) {
@@ -526,7 +526,7 @@ public class ListenerTest extends HazelcastTestSupport {
     public void testMapPartitionLostListener_registeredViaImplementationInConfigObject() {
         final String name = randomString();
         Config config = getConfig();
-        MapConfig mapConfig = config.getMapConfig(name);
+        MapConfig mapConfig = config.getMapConfiguration(name);
         MapPartitionLostListener listener = mock(MapPartitionLostListener.class);
         mapConfig.addMapPartitionLostListenerConfig(new MapPartitionLostListenerConfig(listener));
         mapConfig.setBackupCount(0);
@@ -583,7 +583,7 @@ public class ListenerTest extends HazelcastTestSupport {
         String name = randomString();
         String key = randomString();
         Config config = getConfig();
-        config.getMapConfig(name).setInMemoryFormat(InMemoryFormat.OBJECT);
+        config.getMapConfiguration(name).setInMemoryFormat(InMemoryFormat.OBJECT);
         HazelcastInstance instance = createHazelcastInstance(config);
         IMap<Object, Object> map = instance.getMap(name);
         EntryAddedLatch latch = new EntryAddedLatch(1);
@@ -714,7 +714,7 @@ public class ListenerTest extends HazelcastTestSupport {
     private void hazelcastAwareEntryListener_injectHazelcastInstance(EntryListenerConfig listenerConfig) {
         String pingMapName = randomMapName();
         Config config = getConfig();
-        config.getMapConfig(pingMapName).getEntryListenerConfigs().add(listenerConfig);
+        config.getMapConfiguration(pingMapName).getEntryListenerConfigs().add(listenerConfig);
         HazelcastInstance instance = createHazelcastInstance(config);
 
         IMap<Integer, String> pingMap = instance.getMap(pingMapName);

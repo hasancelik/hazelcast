@@ -147,7 +147,7 @@ public class MapExpirationManagerTest extends AbstractExpirationManagerTest {
 
         Config config = getConfig();
         config.setProperty(taskPeriodSecondsPropName(), "1");
-        config.getMapConfig(mapName).setTimeToLiveSeconds(2);
+        config.getMapConfiguration(mapName).setTimeToLiveSeconds(2);
         HazelcastInstance node = createHazelcastInstance(config);
 
         IMap<Integer, Integer> map = node.getMap(mapName);
@@ -163,7 +163,7 @@ public class MapExpirationManagerTest extends AbstractExpirationManagerTest {
 
         Config config = getConfig();
         config.setProperty(taskPeriodSecondsPropName(), "1");
-        config.getMapConfig(mapName).setMaxIdleSeconds(2);
+        config.getMapConfiguration(mapName).setMaxIdleSeconds(2);
         HazelcastInstance node = createHazelcastInstance(config);
 
         IMap<Integer, Integer> map = node.getMap(mapName);

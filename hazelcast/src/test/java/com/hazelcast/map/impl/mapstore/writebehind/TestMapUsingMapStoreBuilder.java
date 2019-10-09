@@ -156,7 +156,7 @@ public class TestMapUsingMapStoreBuilder<K, V> {
                 .setWriteCoalescing(writeCoalescing);
 
         final Config config = new Config();
-        config.getMapConfig(mapName)
+        config.getMapConfiguration(mapName)
                 .setBackupCount(backupCount)
                 .setMapStoreConfig(mapStoreConfig)
                 .setInMemoryFormat(inMemoryFormat);

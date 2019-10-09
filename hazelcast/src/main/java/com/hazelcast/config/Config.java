@@ -450,7 +450,7 @@ public class Config {
             initDefaultMaxSizeForOnHeapMaps(config.getNearCacheConfig());
             return new MapConfigReadOnly(config);
         }
-        return new MapConfigReadOnly(getMapConfig("default"));
+        return new MapConfigReadOnly(getMapConfiguration("default"));
     }
 
     /**
@@ -499,7 +499,7 @@ public class Config {
      * @see #setConfigPatternMatcher(ConfigPatternMatcher)
      * @see #getConfigPatternMatcher()
      */
-    public MapConfig getMapConfig(String name) {
+    public MapConfig getMapConfiguration(String name) {
         return ConfigUtils.getConfig(configPatternMatcher, mapConfigs, name, MapConfig.class);
     }
 

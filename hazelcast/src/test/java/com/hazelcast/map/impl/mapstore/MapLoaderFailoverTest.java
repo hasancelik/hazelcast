@@ -202,7 +202,7 @@ public class MapLoaderFailoverTest extends HazelcastTestSupport {
                 .setInitialLoadMode(loadMode)
                 .setImplementation(loader);
 
-        config.getMapConfig(mapName)
+        config.getMapConfiguration(mapName)
                 .setBackupCount(backups)
                 .setMapStoreConfig(mapStoreConfig);
 

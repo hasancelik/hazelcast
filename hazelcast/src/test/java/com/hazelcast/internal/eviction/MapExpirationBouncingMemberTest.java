@@ -94,7 +94,7 @@ public class MapExpirationBouncingMemberTest extends AbstractExpirationBouncingM
     @Override
     protected Config getConfig() {
         Config config = super.getConfig();
-        config.getMapConfig(name)
+        config.getMapConfiguration(name)
                 .setMaxIdleSeconds(ONE_SECOND)
                 .setBackupCount(backupCount);
         return config;

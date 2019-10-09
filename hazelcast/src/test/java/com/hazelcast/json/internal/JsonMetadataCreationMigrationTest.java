@@ -124,7 +124,7 @@ public class JsonMetadataCreationMigrationTest extends HazelcastTestSupport {
 
     protected Config getConfig() {
         Config config = new Config();
-        config.getMapConfig("default")
+        config.getMapConfiguration("default")
                 .setBackupCount(NODE_COUNT - 1)
                 .setAsyncBackupCount(0)
                 .setMetadataPolicy(MetadataPolicy.CREATE_ON_UPDATE);

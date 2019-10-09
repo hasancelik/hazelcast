@@ -61,7 +61,7 @@ public class SingleValueAllPredicatesExtractorTest extends SingleValueAllPredica
         return new AbstractExtractionTest.Configurator() {
             @Override
             public void doWithConfig(Config config, Multivalue mv) {
-                MapConfig mapConfig = config.getMapConfig("map");
+                MapConfig mapConfig = config.getMapConfiguration("map");
 
                 AttributeConfig iqConfig = new TestAttributeIndexConfig();
                 iqConfig.setName("brain.iq");

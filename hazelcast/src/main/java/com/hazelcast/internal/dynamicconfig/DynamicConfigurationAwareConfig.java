@@ -231,7 +231,7 @@ public class DynamicConfigurationAwareConfig extends Config {
     }
 
     @Override
-    public MapConfig getMapConfig(String name) {
+    public MapConfig getMapConfiguration(String name) {
         return getMapConfigInternal(name, name);
     }
 

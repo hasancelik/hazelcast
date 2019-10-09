@@ -94,7 +94,7 @@ public class RestTest {
         Config config = new Config();
         RestApiConfig restApiConfig = new RestApiConfig().setEnabled(true).enableAllGroups();
         config.getNetworkConfig().setRestApiConfig(restApiConfig);
-        config.getMapConfig(MAP_WITH_TTL).setTimeToLiveSeconds(2);
+        config.getMapConfiguration(MAP_WITH_TTL).setTimeToLiveSeconds(2);
         return config;
     }
 

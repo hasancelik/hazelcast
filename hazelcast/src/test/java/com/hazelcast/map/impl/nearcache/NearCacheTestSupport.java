@@ -255,7 +255,7 @@ public class NearCacheTestSupport extends HazelcastTestSupport {
         NearCacheConfig nearCacheConfig = newNearCacheConfig();
         nearCacheConfig.setCacheLocalEntries(true);
 
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         mapConfig.setNearCacheConfig(nearCacheConfig);
 
         return config;
@@ -269,7 +269,7 @@ public class NearCacheTestSupport extends HazelcastTestSupport {
         mapStoreConfig.setImplementation(store);
 
         Config config = createNearCachedMapConfig(mapName);
-        config.getMapConfig(mapName).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(mapName).setMapStoreConfig(mapStoreConfig);
 
         return config;
     }
@@ -280,7 +280,7 @@ public class NearCacheTestSupport extends HazelcastTestSupport {
 
         MapServiceContext mapServiceContext = service.getMapServiceContext();
         MapNearCacheManager mapNearCacheManager = mapServiceContext.getMapNearCacheManager();
-        NearCacheConfig nearCacheConfig = nodeEngine.getConfig().getMapConfig(mapName).getNearCacheConfig();
+        NearCacheConfig nearCacheConfig = nodeEngine.getConfig().getMapConfiguration(mapName).getNearCacheConfig();
         return mapNearCacheManager.getOrCreateNearCache(mapName, nearCacheConfig);
     }
 

@@ -445,7 +445,7 @@ public class ClientMapNearCacheTest extends NearCacheTestSupport {
                 .setEnabled(true)
                 .setImplementation(store);
         Config config = server.getConfig();
-        config.getMapConfig(mapName).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(mapName).setMapStoreConfig(mapStoreConfig);
 
         final IMap<Integer, Integer> clientMap = client.getMap(mapName);
 
@@ -473,7 +473,7 @@ public class ClientMapNearCacheTest extends NearCacheTestSupport {
                 .setEnabled(true)
                 .setImplementation(store);
         Config config = member.getConfig();
-        config.getMapConfig(mapName).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(mapName).setMapStoreConfig(mapStoreConfig);
 
         final IMap<Integer, Integer> clientMap = client.getMap(mapName);
 
@@ -502,7 +502,7 @@ public class ClientMapNearCacheTest extends NearCacheTestSupport {
                 .setEnabled(true)
                 .setImplementation(store);
         Config config = server.getConfig();
-        config.getMapConfig(mapName).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(mapName).setMapStoreConfig(mapStoreConfig);
 
         final IMap<Integer, Integer> clientMap = client.getMap(mapName);
 
@@ -1090,9 +1090,9 @@ public class ClientMapNearCacheTest extends NearCacheTestSupport {
     public void receives_one_clearEvent_after_mapLoadAll_call_from_client() {
         // configure map-store
         Config config = newConfig();
-        config.getMapConfig("default").getMapStoreConfig()
-                .setEnabled(true)
-                .setImplementation(new SimpleMapStore());
+        config.getMapConfiguration("default").getMapStoreConfig()
+              .setEnabled(true)
+              .setImplementation(new SimpleMapStore());
 
         // populate Near Cache
         final IMap<Integer, Integer> clientMap = getNearCachedMapFromClient(config, newNearCacheConfig(), 2);
@@ -1119,9 +1119,9 @@ public class ClientMapNearCacheTest extends NearCacheTestSupport {
     public void receives_one_clearEvent_after_mapLoadAll_call_from_member() {
         // configure map-store
         Config config = newConfig();
-        config.getMapConfig("default").getMapStoreConfig()
-                .setEnabled(true)
-                .setImplementation(new SimpleMapStore());
+        config.getMapConfiguration("default").getMapStoreConfig()
+              .setEnabled(true)
+              .setImplementation(new SimpleMapStore());
 
         // populate Near Cache
         final IMap<Integer, Integer> clientMap = getNearCachedMapFromClient(config, newNearCacheConfig(), 2);
@@ -1178,10 +1178,10 @@ public class ClientMapNearCacheTest extends NearCacheTestSupport {
     @Test
     public void testMapDestroy_succeeds_when_writeBehind_and_nearCache_enabled() {
         Config config = newConfig();
-        config.getMapConfig("default").getMapStoreConfig()
-                .setEnabled(true)
-                .setWriteDelaySeconds(1)
-                .setImplementation(new MapStoreAdapter());
+        config.getMapConfiguration("default").getMapStoreConfig()
+              .setEnabled(true)
+              .setWriteDelaySeconds(1)
+              .setImplementation(new MapStoreAdapter());
 
         IMap<Integer, Integer> map = getNearCachedMapFromClient(config, newInvalidationEnabledNearCacheConfig());
         populateMap(map, 10);

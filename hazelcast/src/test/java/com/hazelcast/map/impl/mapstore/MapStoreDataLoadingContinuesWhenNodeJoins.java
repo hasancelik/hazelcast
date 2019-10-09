@@ -384,7 +384,7 @@ public class MapStoreDataLoadingContinuesWhenNodeJoins extends HazelcastTestSupp
         // disable JMX to make sure lazy loading works asynchronously
         config.setProperty("hazelcast.jmx", "false");
         // get map config
-        MapConfig mapConfig = config.getMapConfig(MAP_NAME);
+        MapConfig mapConfig = config.getMapConfiguration(MAP_NAME);
 
         // create shared map store implementation
         // - use slow loading (300ms per map entry)

@@ -61,7 +61,7 @@ public abstract class AbstractEventJournalExpiringTest<EJ_TYPE> extends Hazelcas
                 .setTimeToLiveSeconds(1)
                 .setCapacity(500 * defaultPartitionCount);
 
-        config.getMapConfig("default").setEventJournalConfig(eventJournalConfig);
+        config.getMapConfiguration("default").setEventJournalConfig(eventJournalConfig);
         config.getCacheConfig("default").setEventJournalConfig(eventJournalConfig);
         return config;
     }

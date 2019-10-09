@@ -65,7 +65,7 @@ public class ServerQueryCacheRecreationTest extends HazelcastTestSupport {
 
         QueryCacheConfig queryCacheConfig = new QueryCacheConfig(queryCacheName);
         Config config = getConfig();
-        config.getMapConfig("default").addQueryCacheConfig(queryCacheConfig);
+        config.getMapConfiguration("default").addQueryCacheConfig(queryCacheConfig);
         serverWithQueryCache = factory.newHazelcastInstance(config);
     }
 

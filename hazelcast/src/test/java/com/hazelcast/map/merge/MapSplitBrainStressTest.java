@@ -70,7 +70,7 @@ public class MapSplitBrainStressTest extends SplitBrainTestSupport {
     @Override
     protected Config config() {
         Config config = super.config();
-        config.getMapConfig(MAP_NAME_PREFIX + "*")
+        config.getMapConfiguration(MAP_NAME_PREFIX + "*")
                 .getMergePolicyConfig()
                 .setPolicy(MERGE_POLICY.getName());
         return config;

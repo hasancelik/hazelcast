@@ -61,7 +61,7 @@ public class MapPutAllWrongTargetForPartitionTest extends HazelcastTestSupport {
         Config config = getConfig();
         config.setProperty(GroupProperty.PARTITION_COUNT.getName(), String.valueOf(INSTANCE_COUNT));
         config.setProperty(GroupProperty.OPERATION_CALL_TIMEOUT_MILLIS.getName(), "3000");
-        config.getMapConfig("default")
+        config.getMapConfiguration("default")
                 .setBackupCount(1)
                 .setAsyncBackupCount(0);
 

@@ -75,7 +75,7 @@ public class MapProxyImplTest extends HazelcastTestSupport {
                 .setName(mapName)
                 .setInMemoryFormat(BINARY)
                 .setInvalidateOnChange(false);
-        config.getMapConfig(mapName).setNearCacheConfig(nearCacheConfig);
+        config.getMapConfiguration(mapName).setNearCacheConfig(nearCacheConfig);
 
         HazelcastInstance hz = createHazelcastInstance(config);
         MapProxyImpl mapProxy = (MapProxyImpl) hz.getMap(mapName);
@@ -89,7 +89,7 @@ public class MapProxyImplTest extends HazelcastTestSupport {
 
     private Config getConfigWithMapStore(String mapName, InitialLoadMode loadMode) {
         Config config = new Config();
-        config.getMapConfig(mapName)
+        config.getMapConfiguration(mapName)
                 .getMapStoreConfig().setClassName("com.hazelcast.config.helpers.DummyMapStore")
                 .setInitialLoadMode(loadMode)
                 .setEnabled(true);

@@ -79,7 +79,7 @@ public class ExternalizableDeserializationProtectionTest extends HazelcastTestSu
         Config config = smallInstanceConfig();
         config.getSerializationConfig().setJavaSerializationFilterConfig(javaSerializationFilterConfig);
         // the index will force deserialization
-        config.getMapConfig("test").addIndexConfig(new IndexConfig(IndexType.HASH, "name"));
+        config.getMapConfiguration("test").addIndexConfig(new IndexConfig(IndexType.HASH, "name"));
         hazelcastFactory.newHazelcastInstance(config);
 
         HazelcastInstance client = hazelcastFactory.newHazelcastClient();
@@ -117,7 +117,7 @@ public class ExternalizableDeserializationProtectionTest extends HazelcastTestSu
     @Test
     public void testExternalizableUnprotected() {
         Config config = smallInstanceConfig();
-        config.getMapConfig("test").addIndexConfig(new IndexConfig(IndexType.HASH, "name"));
+        config.getMapConfiguration("test").addIndexConfig(new IndexConfig(IndexType.HASH, "name"));
         hazelcastFactory.newHazelcastInstance(config);
 
         HazelcastInstance client = hazelcastFactory.newHazelcastClient();

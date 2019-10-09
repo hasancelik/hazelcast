@@ -60,7 +60,7 @@ public class DynamicConfigSearchOrderTest extends HazelcastTestSupport {
         hazelcastInstance = createHazelcastInstance(staticHazelcastConfig);
         hazelcastInstance.getConfig().addMapConfig(new MapConfig(DYNAMIC_WILDCARD_NAME));
         assertEquals("Dynamic wildcard name should match", DYNAMIC_WILDCARD_NAME,
-                hazelcastInstance.getConfig().getMapConfig(DYNAMIC_NAME).getName());
+                hazelcastInstance.getConfig().getMapConfiguration(DYNAMIC_NAME).getName());
     }
 
     @Test
@@ -69,7 +69,7 @@ public class DynamicConfigSearchOrderTest extends HazelcastTestSupport {
         hazelcastInstance.getConfig().addMapConfig(new MapConfig(DYNAMIC_WILDCARD_NAME));
         hazelcastInstance.getConfig().addMapConfig(new MapConfig(DYNAMIC_NAME));
         assertEquals("Dynamic exact match should prepend wildcard settings", DYNAMIC_NAME,
-                hazelcastInstance.getConfig().getMapConfig(DYNAMIC_NAME).getName());
+                hazelcastInstance.getConfig().getMapConfiguration(DYNAMIC_NAME).getName());
     }
 
     @Test
@@ -81,11 +81,11 @@ public class DynamicConfigSearchOrderTest extends HazelcastTestSupport {
         hazelcastInstance.getConfig().addMapConfig(new MapConfig(DYNAMIC_NAME));
 
         assertEquals("Dynamic exact name should match", DYNAMIC_NAME,
-                hazelcastInstance.getConfig().getMapConfig(DYNAMIC_NAME).getName());
+                hazelcastInstance.getConfig().getMapConfiguration(DYNAMIC_NAME).getName());
         assertEquals("Dynamic wildcard settings should prepend static settings", DYNAMIC_WILDCARD_NAME,
-                hazelcastInstance.getConfig().getMapConfig(STATIC_NAME).getName());
+                hazelcastInstance.getConfig().getMapConfiguration(STATIC_NAME).getName());
         assertEquals("Dynamic wildcard settings should prepend static settings", DYNAMIC_WILDCARD_NAME,
-                hazelcastInstance.getConfig().getMapConfig(NON_EXISTENT_NAME).getName());
+                hazelcastInstance.getConfig().getMapConfiguration(NON_EXISTENT_NAME).getName());
     }
 
     @Test
@@ -95,8 +95,8 @@ public class DynamicConfigSearchOrderTest extends HazelcastTestSupport {
         hazelcastInstance = createHazelcastInstance(staticHazelcastConfig);
 
         assertEquals("Static wildcard settings should match", STATIC_WILDCARD_NAME,
-                hazelcastInstance.getConfig().getMapConfig(NON_EXISTENT_NAME).getName());
+                hazelcastInstance.getConfig().getMapConfiguration(NON_EXISTENT_NAME).getName());
         assertEquals("Static exact name should match", STATIC_NAME,
-                hazelcastInstance.getConfig().getMapConfig(STATIC_NAME).getName());
+                hazelcastInstance.getConfig().getMapConfiguration(STATIC_NAME).getName());
     }
 }

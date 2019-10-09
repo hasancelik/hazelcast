@@ -57,7 +57,7 @@ public class ClientMapWithIndexCreationTest extends HazelcastTestSupport {
     public void test_createMapWithIndexes_whenProxyCreatedOnMemberOtherThanClientOwner() {
         Config config = new XmlConfigBuilder().build();
 
-        MapConfig mapConfig = config.getMapConfig("test");
+        MapConfig mapConfig = config.getMapConfiguration("test");
         List<IndexConfig> indexConfigs = mapConfig.getIndexConfigs();
 
         IndexConfig indexConfig = new IndexConfig();

@@ -92,13 +92,13 @@ public class QueryCacheBasicTest extends HazelcastTestSupport {
     @Before
     public void setup() {
         Config config = new Config();
-        config.getMapConfig(TEST_MAP_NAME).addQueryCacheConfig(
+        config.getMapConfiguration(TEST_MAP_NAME).addQueryCacheConfig(
                 new QueryCacheConfig(QUERY_CACHE_NAME)
                         .setPredicateConfig(new PredicateConfig(predicate))
                         .setIncludeValue(includeValues)
         );
         if (useNearCache) {
-            config.getMapConfig(TEST_MAP_NAME).setNearCacheConfig(new NearCacheConfig()
+            config.getMapConfiguration(TEST_MAP_NAME).setNearCacheConfig(new NearCacheConfig()
                     .setCacheLocalEntries(true));
         }
         config.setProperty(MapEventPublisherImpl.LISTENER_WITH_PREDICATE_PRODUCES_NATURAL_EVENT_TYPES.getName(),

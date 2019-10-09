@@ -95,7 +95,7 @@ public class QueryCacheTest extends AbstractQueryCacheTestSupport {
         Config config = new Config().setProperty(GroupProperty.PARTITION_COUNT.getName(), "1");
 
         QueryCacheConfig queryCacheConfig = new QueryCacheConfig(cacheName);
-        config.getMapConfig(mapName).addQueryCacheConfig(queryCacheConfig);
+        config.getMapConfiguration(mapName).addQueryCacheConfig(queryCacheConfig);
 
         IMap<Integer, Integer> map = getIMap(config);
 
@@ -213,7 +213,7 @@ public class QueryCacheTest extends AbstractQueryCacheTestSupport {
         String ATTRIBUTE_NAME = "booleanAttribute";
 
         Config config = new Config();
-        config.getMapConfig(mapName)
+        config.getMapConfiguration(mapName)
                 .addQueryCacheConfig(
                         new QueryCacheConfig(cacheName)
                                 .setIncludeValue(true)
@@ -246,7 +246,7 @@ public class QueryCacheTest extends AbstractQueryCacheTestSupport {
         queryCacheConfig.setIncludeValue(includeValue);
 
         Config config = new Config();
-        config.getMapConfig(mapName).addQueryCacheConfig(queryCacheConfig);
+        config.getMapConfiguration(mapName).addQueryCacheConfig(queryCacheConfig);
 
         IMap<Integer, Integer> map = getIMap(config);
 
@@ -273,7 +273,7 @@ public class QueryCacheTest extends AbstractQueryCacheTestSupport {
         queryCacheConfig.setPopulate(enableInitialPopulation);
 
         Config config = new Config();
-        config.getMapConfig(mapName).addQueryCacheConfig(queryCacheConfig);
+        config.getMapConfiguration(mapName).addQueryCacheConfig(queryCacheConfig);
 
         IMap<Integer, Employee> map = getIMap(config);
 

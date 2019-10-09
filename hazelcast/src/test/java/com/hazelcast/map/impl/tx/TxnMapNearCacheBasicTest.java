@@ -130,7 +130,7 @@ public class TxnMapNearCacheBasicTest extends AbstractNearCacheBasicTest<Data, S
         Config config = getConfig();
 
         if (withNearCache) {
-            config.getMapConfig(DEFAULT_NEAR_CACHE_NAME).setNearCacheConfig(nearCacheConfig);
+            config.getMapConfiguration(DEFAULT_NEAR_CACHE_NAME).setNearCacheConfig(nearCacheConfig);
         }
         return config;
     }

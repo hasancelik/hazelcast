@@ -181,7 +181,7 @@ public class IssuesTest extends HazelcastTestSupport {
         Config config = getConfig();
         config.setClusterName("testIssue174NearCacheContainsKeySingleNode");
         NearCacheConfig nearCacheConfig = new NearCacheConfig();
-        config.getMapConfig("default").setNearCacheConfig(nearCacheConfig);
+        config.getMapConfiguration("default").setNearCacheConfig(nearCacheConfig);
         HazelcastInstance h = factory.newHazelcastInstance(config);
         IMap<String, String> map = h.getMap("testIssue174NearCacheContainsKeySingleNode");
         map.put("key", "value");

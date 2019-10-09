@@ -62,9 +62,9 @@ public class ExtractorsAndIndexesTest extends HazelcastTestSupport {
         String mapName = randomMapName();
 
         Config config = new Config();
-        config.getMapConfig(mapName).setInMemoryFormat(inMemoryFormat)
-            .addIndexConfig(new IndexConfig(IndexType.SORTED, "last"))
-            .addAttributeConfig(new AttributeConfig("generated", Extractor.class.getName()));
+        config.getMapConfiguration(mapName).setInMemoryFormat(inMemoryFormat)
+              .addIndexConfig(new IndexConfig(IndexType.SORTED, "last"))
+              .addAttributeConfig(new AttributeConfig("generated", Extractor.class.getName()));
         config.getNativeMemoryConfig().setEnabled(true);
 
         config.setProperty(GroupProperty.PARTITION_COUNT.getName(), "1");

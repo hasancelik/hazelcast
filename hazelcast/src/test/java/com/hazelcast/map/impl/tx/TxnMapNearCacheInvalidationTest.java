@@ -87,7 +87,7 @@ public class TxnMapNearCacheInvalidationTest extends HazelcastTestSupport {
                 .setInvalidateOnChange(true);
 
         Config config = smallInstanceConfig();
-        config.getMapConfig(mapName).setNearCacheConfig(nearCacheConfig);
+        config.getMapConfiguration(mapName).setNearCacheConfig(nearCacheConfig);
 
         final HazelcastInstance instance = createHazelcastInstance(config);
 
@@ -179,7 +179,7 @@ public class TxnMapNearCacheInvalidationTest extends HazelcastTestSupport {
                 .setInvalidateOnChange(true);
 
         Config config = smallInstanceConfig();
-        config.getMapConfig(mapName).setNearCacheConfig(nearCacheConfig);
+        config.getMapConfiguration(mapName).setNearCacheConfig(nearCacheConfig);
 
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory();
         HazelcastInstance hz = factory.newHazelcastInstance(config);

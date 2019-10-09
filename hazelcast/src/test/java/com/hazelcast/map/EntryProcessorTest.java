@@ -203,7 +203,7 @@ public class EntryProcessorTest extends HazelcastTestSupport {
     @Test
     public void testIndexAware_Issue_1719() {
         Config cfg = getConfig();
-        cfg.getMapConfig(MAP_NAME).addIndexConfig(new IndexConfig(IndexType.HASH, "attr1"));
+        cfg.getMapConfiguration(MAP_NAME).addIndexConfig(new IndexConfig(IndexType.HASH, "attr1"));
         HazelcastInstance instance = createHazelcastInstance(cfg);
 
         IMap<String, TestData> map = instance.getMap(MAP_NAME);
@@ -228,7 +228,7 @@ public class EntryProcessorTest extends HazelcastTestSupport {
     @Test
     public void testExecuteOnKeysBackupOperation() {
         Config cfg = getConfig();
-        cfg.getMapConfig(MAP_NAME).setBackupCount(1);
+        cfg.getMapConfiguration(MAP_NAME).setBackupCount(1);
         TestHazelcastInstanceFactory nodeFactory = createHazelcastInstanceFactory(2);
         HazelcastInstance instance1 = nodeFactory.newHazelcastInstance(cfg);
         HazelcastInstance instance2 = nodeFactory.newHazelcastInstance(cfg);
@@ -263,7 +263,7 @@ public class EntryProcessorTest extends HazelcastTestSupport {
     @Test
     public void testExecuteOnKeysBackupOperationIndexed() {
         Config cfg = getConfig();
-        cfg.getMapConfig(MAP_NAME).setBackupCount(1).addIndexConfig(new IndexConfig(IndexType.HASH, "attr1"));
+        cfg.getMapConfiguration(MAP_NAME).setBackupCount(1).addIndexConfig(new IndexConfig(IndexType.HASH, "attr1"));
         TestHazelcastInstanceFactory nodeFactory = createHazelcastInstanceFactory(2);
         HazelcastInstance instance1 = nodeFactory.newHazelcastInstance(cfg);
         HazelcastInstance instance2 = nodeFactory.newHazelcastInstance(cfg);
@@ -295,7 +295,7 @@ public class EntryProcessorTest extends HazelcastTestSupport {
     public void testEntryProcessorDeleteWithPredicate() {
         TestHazelcastInstanceFactory nodeFactory = createHazelcastInstanceFactory(2);
         Config cfg = getConfig();
-        cfg.getMapConfig(MAP_NAME).setBackupCount(1);
+        cfg.getMapConfiguration(MAP_NAME).setBackupCount(1);
         HazelcastInstance instance1 = nodeFactory.newHazelcastInstance(cfg);
         HazelcastInstance instance2 = nodeFactory.newHazelcastInstance(cfg);
 
@@ -464,7 +464,7 @@ public class EntryProcessorTest extends HazelcastTestSupport {
     public void testEntryProcessorDelete() {
         TestHazelcastInstanceFactory nodeFactory = createHazelcastInstanceFactory(2);
         Config cfg = getConfig();
-        cfg.getMapConfig(MAP_NAME).setBackupCount(1);
+        cfg.getMapConfiguration(MAP_NAME).setBackupCount(1);
         HazelcastInstance instance1 = nodeFactory.newHazelcastInstance(cfg);
         HazelcastInstance instance2 = nodeFactory.newHazelcastInstance(cfg);
 
@@ -938,7 +938,7 @@ public class EntryProcessorTest extends HazelcastTestSupport {
     @Test
     public void testInstanceAwareness_onOwnerAndBackup() {
         Config cfg = getConfig();
-        cfg.getMapConfig(MAP_NAME).setReadBackupData(true);
+        cfg.getMapConfiguration(MAP_NAME).setReadBackupData(true);
 
         TestHazelcastInstanceFactory nodeFactory = createHazelcastInstanceFactory(2);
         HazelcastInstance instance1 = nodeFactory.newHazelcastInstance(cfg);
@@ -974,7 +974,7 @@ public class EntryProcessorTest extends HazelcastTestSupport {
             }
 
         });
-        cfg.getMapConfig(MAP_NAME).setMapStoreConfig(mapStoreConfig);
+        cfg.getMapConfiguration(MAP_NAME).setMapStoreConfig(mapStoreConfig);
         HazelcastInstance instance = nodeFactory.newHazelcastInstance(cfg);
 
         IncrementorEntryProcessor<Integer> entryProcessor = new IncrementorEntryProcessor<>();
@@ -1329,7 +1329,7 @@ public class EntryProcessorTest extends HazelcastTestSupport {
     @Test
     public void test_entryProcessorRuns_onAsyncBackup() {
         Config config = getConfig();
-        config.getMapConfig(MAP_NAME).setBackupCount(0).setAsyncBackupCount(1);
+        config.getMapConfiguration(MAP_NAME).setBackupCount(0).setAsyncBackupCount(1);
 
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory();
         final HazelcastInstance instance1 = factory.newHazelcastInstance(config);
@@ -1351,7 +1351,7 @@ public class EntryProcessorTest extends HazelcastTestSupport {
     @Test
     public void receivesEntryRemovedEvent_onPostProcessingMapStore_after_executeOnKey() {
         Config config = getConfig();
-        config.getMapConfig(MAP_NAME)
+        config.getMapConfiguration(MAP_NAME)
               .getMapStoreConfig().setEnabled(true).setImplementation(new TestPostProcessingMapStore());
         HazelcastInstance node = createHazelcastInstance(config);
         IMap<Integer, Integer> map = node.getMap(MAP_NAME);
@@ -1371,7 +1371,7 @@ public class EntryProcessorTest extends HazelcastTestSupport {
     @Test
     public void receivesEntryRemovedEvent_onPostProcessingMapStore_after_executeOnEntries() {
         Config config = getConfig();
-        config.getMapConfig(MAP_NAME)
+        config.getMapConfiguration(MAP_NAME)
               .getMapStoreConfig().setEnabled(true).setImplementation(new TestPostProcessingMapStore());
         HazelcastInstance node = createHazelcastInstance(config);
         IMap<Integer, Integer> map = node.getMap(MAP_NAME);
@@ -1522,7 +1522,7 @@ public class EntryProcessorTest extends HazelcastTestSupport {
 
     private IMap<Long, MyData> setupImapForEntryProcessorWithIndex() {
         Config config = getConfig();
-        MapConfig testMapConfig = config.getMapConfig(MAP_NAME);
+        MapConfig testMapConfig = config.getMapConfiguration(MAP_NAME);
         testMapConfig.setInMemoryFormat(inMemoryFormat);
         testMapConfig.addIndexConfig(new IndexConfig(IndexType.SORTED, "lastValue"));
         HazelcastInstance instance = createHazelcastInstance(config);
@@ -1604,7 +1604,7 @@ public class EntryProcessorTest extends HazelcastTestSupport {
     @Test
     public void multiple_entry_with_predicate_operation_returns_empty_response_when_map_is_empty() throws Exception {
         Config config = getConfig();
-        MapConfig mapConfig = config.getMapConfig(MAP_NAME);
+        MapConfig mapConfig = config.getMapConfiguration(MAP_NAME);
         mapConfig.setInMemoryFormat(inMemoryFormat);
 
         HazelcastInstance node = createHazelcastInstance(config);

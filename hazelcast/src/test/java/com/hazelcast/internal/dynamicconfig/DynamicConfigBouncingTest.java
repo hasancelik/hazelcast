@@ -77,7 +77,7 @@ public class DynamicConfigBouncingTest extends HazelcastTestSupport {
 
         bounceMemberRule.testRepeatedly(methods, 60);
         HazelcastInstance instance = bounceMemberRule.getSteadyMember();
-        MapConfig mapConfig = instance.getConfig().getMapConfig(mapName);
+        MapConfig mapConfig = instance.getConfig().getMapConfiguration(mapName);
         assertEquals(createMapConfig(mapName), mapConfig);
     }
 

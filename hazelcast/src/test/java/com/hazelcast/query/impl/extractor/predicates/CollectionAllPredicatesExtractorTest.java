@@ -64,7 +64,7 @@ public class CollectionAllPredicatesExtractorTest extends CollectionAllPredicate
         return new AbstractExtractionTest.Configurator() {
             @Override
             public void doWithConfig(Config config, Multivalue mv) {
-                MapConfig mapConfig = config.getMapConfig("map");
+                MapConfig mapConfig = config.getMapConfiguration("map");
 
                 AttributeConfig reducedNameAttribute = new TestAttributeIndexConfig();
                 reducedNameAttribute.setName(AbstractExtractionTest.parametrize("limb_[any].name", mv));

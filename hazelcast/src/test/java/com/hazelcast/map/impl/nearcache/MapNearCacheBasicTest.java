@@ -107,7 +107,7 @@ public class MapNearCacheBasicTest extends AbstractNearCacheBasicTest<Data, Stri
     protected Config createConfig(IMapMapStore mapStore, boolean withNearCache) {
         Config config = getConfig();
 
-        MapConfig mapConfig = config.getMapConfig(DEFAULT_NEAR_CACHE_NAME);
+        MapConfig mapConfig = config.getMapConfiguration(DEFAULT_NEAR_CACHE_NAME);
         addMapStoreConfig(mapStore, mapConfig);
         if (withNearCache) {
             mapConfig.setNearCacheConfig(nearCacheConfig);

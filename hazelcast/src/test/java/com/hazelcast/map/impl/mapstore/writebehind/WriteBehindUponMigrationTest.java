@@ -118,7 +118,7 @@ public class WriteBehindUponMigrationTest extends HazelcastTestSupport {
                 .setWriteCoalescing(false);
 
         Config config = new Config();
-        config.getMapConfig(mapName)
+        config.getMapConfiguration(mapName)
                 .setBackupCount(1)
                 .setMapStoreConfig(mapStoreConfig);
 

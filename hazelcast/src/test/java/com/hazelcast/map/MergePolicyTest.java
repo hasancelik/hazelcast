@@ -274,7 +274,7 @@ public class MergePolicyTest extends HazelcastTestSupport {
 
         config.setClusterName(generateRandomString(10));
 
-        config.getMapConfig(mapName)
+        config.getMapConfiguration(mapName)
                 .getMergePolicyConfig().setPolicy(mergePolicy);
 
         return config;

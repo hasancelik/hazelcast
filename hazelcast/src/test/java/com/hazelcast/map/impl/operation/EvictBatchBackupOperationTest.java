@@ -54,7 +54,7 @@ public class EvictBatchBackupOperationTest extends HazelcastTestSupport {
         final String mapName = "test";
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setBackupCount(backupCount);
+        config.getMapConfiguration(mapName).setBackupCount(backupCount);
 
         // 2. Create nodes
         HazelcastInstance node1 = factory.newHazelcastInstance(config);

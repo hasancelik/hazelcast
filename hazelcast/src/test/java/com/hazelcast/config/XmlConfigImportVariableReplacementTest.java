@@ -79,7 +79,7 @@ public class XmlConfigImportVariableReplacementTest extends AbstractConfigImport
         properties.setProperty("backupcount.part1", "0");
         properties.setProperty("backupcount.part2", "6");
         Config config = buildConfig(xml, properties);
-        MapConfig mapConfig = config.getMapConfig("s");
+        MapConfig mapConfig = config.getMapConfiguration("s");
         assertEquals(6, mapConfig.getBackupCount());
         assertEquals(0, mapConfig.getAsyncBackupCount());
     }
@@ -230,7 +230,7 @@ public class XmlConfigImportVariableReplacementTest extends AbstractConfigImport
                 + "</non-hazelcast>";
 
         Config config = buildConfig(xml, null);
-        assertNull(config.getMapConfig("mymap"));
+        assertNull(config.getMapConfiguration("mymap"));
     }
 
     @Override
@@ -281,7 +281,7 @@ public class XmlConfigImportVariableReplacementTest extends AbstractConfigImport
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml, null);
-        MapConfig myMapConfig = config.getMapConfig("mymap");
+        MapConfig myMapConfig = config.getMapConfiguration("mymap");
         assertEquals("mymap", myMapConfig.getName());
         assertEquals(6, myMapConfig.getBackupCount());
         assertEquals(10, myMapConfig.getTimeToLiveSeconds());
@@ -316,7 +316,7 @@ public class XmlConfigImportVariableReplacementTest extends AbstractConfigImport
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml, null);
-        MapConfig myMapConfig = config.getMapConfig("mymap");
+        MapConfig myMapConfig = config.getMapConfiguration("mymap");
         assertEquals("mymap", myMapConfig.getName());
         assertEquals(10, myMapConfig.getTimeToLiveSeconds());
 
@@ -359,12 +359,12 @@ public class XmlConfigImportVariableReplacementTest extends AbstractConfigImport
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml, null);
-        MapConfig mapInMainMapConfig = config.getMapConfig("mapInMain");
+        MapConfig mapInMainMapConfig = config.getMapConfiguration("mapInMain");
         assertEquals("mapInMain", mapInMainMapConfig.getName());
         assertEquals(5, mapInMainMapConfig.getTimeToLiveSeconds());
         assertEquals(2, mapInMainMapConfig.getBackupCount());
 
-        MapConfig importedMap = config.getMapConfig("importedMap");
+        MapConfig importedMap = config.getMapConfiguration("importedMap");
         assertEquals("importedMap", importedMap.getName());
         assertEquals(10, importedMap.getTimeToLiveSeconds());
         assertEquals(6, importedMap.getBackupCount());

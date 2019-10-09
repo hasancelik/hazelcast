@@ -54,7 +54,7 @@ public class MapClassLoaderTest extends HazelcastTestSupport {
         final Config config = new Config();
 
         // get map config
-        final MapConfig mapConfig = config.getMapConfig(MAP_NAME);
+        final MapConfig mapConfig = config.getMapConfiguration(MAP_NAME);
 
         // create shared map store implementation
         final InMemoryMapStore store = new InMemoryMapStore();

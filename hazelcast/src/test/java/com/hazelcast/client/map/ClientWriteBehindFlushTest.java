@@ -64,7 +64,7 @@ public class ClientWriteBehindFlushTest extends HazelcastTestSupport {
                 .setWriteDelaySeconds(3000);
 
         Config config = getConfig();
-        config.getMapConfig(MAP_NAME).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(MAP_NAME).setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance member1 = hazelcastFactory.newHazelcastInstance(config);
         HazelcastInstance member2 = hazelcastFactory.newHazelcastInstance(config);
@@ -110,7 +110,7 @@ public class ClientWriteBehindFlushTest extends HazelcastTestSupport {
                 .setImplementation(store);
 
         Config config = getConfig();
-        config.getMapConfig(MAP_NAME)
+        config.getMapConfiguration(MAP_NAME)
                 .setMapStoreConfig(mapStoreConfig);
 
         return config;

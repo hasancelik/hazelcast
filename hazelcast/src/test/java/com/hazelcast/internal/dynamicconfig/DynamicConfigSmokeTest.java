@@ -194,7 +194,7 @@ public class DynamicConfigSmokeTest extends HazelcastTestSupport {
         liteConfig.setLiteMember(true);
         HazelcastInstance i3 = factory.newHazelcastInstance(liteConfig);
 
-        MapConfig mapConfigOnLiteMember = i3.getConfig().getMapConfig(mapName);
+        MapConfig mapConfigOnLiteMember = i3.getConfig().getMapConfiguration(mapName);
         assertEquals(TestConfigUtils.NON_DEFAULT_BACKUP_COUNT, mapConfigOnLiteMember.getBackupCount());
     }
 

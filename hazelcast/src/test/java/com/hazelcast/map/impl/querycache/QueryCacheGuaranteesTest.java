@@ -59,7 +59,7 @@ public class QueryCacheGuaranteesTest extends HazelcastTestSupport {
         queryCacheConfig.setBatchSize(100);
         queryCacheConfig.setDelaySeconds(3);
 
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         mapConfig.addQueryCacheConfig(queryCacheConfig);
 
         HazelcastInstance node = instanceFactory.newHazelcastInstance(config);
@@ -104,7 +104,7 @@ public class QueryCacheGuaranteesTest extends HazelcastTestSupport {
         queryCacheConfig.setBatchSize(100);
         queryCacheConfig.setDelaySeconds(6);
 
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         mapConfig.addQueryCacheConfig(queryCacheConfig);
 
         HazelcastInstance node = instanceFactory.newHazelcastInstance(config);

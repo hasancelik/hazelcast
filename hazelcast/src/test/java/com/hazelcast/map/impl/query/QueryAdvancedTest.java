@@ -108,7 +108,7 @@ public class QueryAdvancedTest extends HazelcastTestSupport {
     public void testQueryWithTTL() {
         Config config = getConfig();
         String mapName = "default";
-        config.getMapConfig(mapName).setTimeToLiveSeconds(10);
+        config.getMapConfiguration(mapName).setTimeToLiveSeconds(10);
 
         HazelcastInstance instance = createHazelcastInstance(config);
 
@@ -408,7 +408,7 @@ public class QueryAdvancedTest extends HazelcastTestSupport {
     public void testMapWithIndexAfterShutDown() {
         Config config = getConfig();
         String mapName = "default";
-        config.getMapConfig(mapName).addIndexConfig(new IndexConfig(IndexType.HASH, "typeName"));
+        config.getMapConfiguration(mapName).addIndexConfig(new IndexConfig(IndexType.HASH, "typeName"));
 
         HazelcastInstance[] instances = createHazelcastInstanceFactory(3).newInstances(config);
 
@@ -479,7 +479,7 @@ public class QueryAdvancedTest extends HazelcastTestSupport {
             }
         });
 
-        config.getMapConfig(name).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(name).setMapStoreConfig(mapStoreConfig);
         HazelcastInstance instance = createHazelcastInstance(config);
         final IMap map = instance.getMap(name);
         assertTrueEventually(new AssertTask() {
@@ -522,7 +522,7 @@ public class QueryAdvancedTest extends HazelcastTestSupport {
                 return new PortableEmployee();
             }
         });
-        config.getMapConfig(mapName)
+        config.getMapConfiguration(mapName)
                 .addIndexConfig(new IndexConfig(IndexType.HASH, "notExist"))
                 .addIndexConfig(new IndexConfig(IndexType.HASH, "n"));
 

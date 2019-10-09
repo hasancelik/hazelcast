@@ -86,17 +86,17 @@ public class RegexConfigPatternMatcherTest {
         config.setConfigPatternMatcher(new RegexConfigPatternMatcher());
         config.addMapConfig(mapConfig);
 
-        assertEquals(mapConfig, config.getMapConfig("someMap"));
-        assertEquals(mapConfig, config.getMapConfig("someMap@foo"));
+        assertEquals(mapConfig, config.getMapConfiguration("someMap"));
+        assertEquals(mapConfig, config.getMapConfiguration("someMap@foo"));
 
         // non-matching name
-        assertNotEquals(mapConfig, config.getMapConfig("doesNotExist"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("doesNotExist"));
         // non-matching name (starts with)
-        assertNotEquals(mapConfig, config.getMapConfig("_someMap"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("_someMap"));
         // non-matching name (ends with)
-        assertNotEquals(mapConfig, config.getMapConfig("someMap_"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("someMap_"));
         // non-matching case
-        assertNotEquals(mapConfig, config.getMapConfig("SomeMap"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("SomeMap"));
     }
 
     @Test
@@ -108,12 +108,12 @@ public class RegexConfigPatternMatcherTest {
         config.addMapConfig(mapConfig);
 
         // case insensitive matching
-        assertEquals(mapConfig, config.getMapConfig("SomeMap"));
+        assertEquals(mapConfig, config.getMapConfiguration("SomeMap"));
 
         // non-matching name (starts with)
-        assertNotEquals(mapConfig, config.getMapConfig("_SomeMap"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("_SomeMap"));
         // non-matching name (ends with)
-        assertNotEquals(mapConfig, config.getMapConfig("SomeMap_"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("SomeMap_"));
     }
 
     @Test
@@ -125,12 +125,12 @@ public class RegexConfigPatternMatcherTest {
         config.addMapConfig(mapConfig);
 
         // we should match this
-        assertEquals(mapConfig, config.getMapConfig("bc.xyz"));
-        assertEquals(mapConfig, config.getMapConfig("bc.xyz@foo"));
+        assertEquals(mapConfig, config.getMapConfiguration("bc.xyz"));
+        assertEquals(mapConfig, config.getMapConfiguration("bc.xyz@foo"));
 
         // we should also match this (contains)
-        assertEquals(mapConfig, config.getMapConfig("abc.xyz"));
-        assertEquals(mapConfig, config.getMapConfig("abc.xyz@foo"));
+        assertEquals(mapConfig, config.getMapConfiguration("abc.xyz"));
+        assertEquals(mapConfig, config.getMapConfiguration("abc.xyz@foo"));
     }
 
     @Test
@@ -142,16 +142,16 @@ public class RegexConfigPatternMatcherTest {
         config.addMapConfig(mapConfig);
 
         // we should match this
-        assertEquals(mapConfig, config.getMapConfig("abc"));
-        assertEquals(mapConfig, config.getMapConfig("abc@foo"));
-        assertEquals(mapConfig, config.getMapConfig("abc.xyz"));
-        assertEquals(mapConfig, config.getMapConfig("abc.xyz@foo"));
+        assertEquals(mapConfig, config.getMapConfiguration("abc"));
+        assertEquals(mapConfig, config.getMapConfiguration("abc@foo"));
+        assertEquals(mapConfig, config.getMapConfiguration("abc.xyz"));
+        assertEquals(mapConfig, config.getMapConfiguration("abc.xyz@foo"));
 
         // we should not match this (starts-with)
-        assertNotEquals(mapConfig, config.getMapConfig("bc"));
-        assertNotEquals(mapConfig, config.getMapConfig("bc@foo"));
-        assertNotEquals(mapConfig, config.getMapConfig("bc.xyz"));
-        assertNotEquals(mapConfig, config.getMapConfig("bc.xyz@foo"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("bc"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("bc@foo"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("bc.xyz"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("bc.xyz@foo"));
     }
 
     @Test
@@ -163,15 +163,15 @@ public class RegexConfigPatternMatcherTest {
         config.addMapConfig(mapConfig);
 
         // we should match this
-        assertEquals(mapConfig, config.getMapConfig("abc"));
-        assertEquals(mapConfig, config.getMapConfig("abc@foo"));
-        assertEquals(mapConfig, config.getMapConfig("xyz.abc"));
-        assertEquals(mapConfig, config.getMapConfig("xyz.abc@foo"));
+        assertEquals(mapConfig, config.getMapConfiguration("abc"));
+        assertEquals(mapConfig, config.getMapConfiguration("abc@foo"));
+        assertEquals(mapConfig, config.getMapConfiguration("xyz.abc"));
+        assertEquals(mapConfig, config.getMapConfiguration("xyz.abc@foo"));
 
         // we should not match this (ends-with)
-        assertNotEquals(mapConfig, config.getMapConfig("abcD"));
-        assertNotEquals(mapConfig, config.getMapConfig("abcD@foo"));
-        assertNotEquals(mapConfig, config.getMapConfig("xyz.abcD"));
-        assertNotEquals(mapConfig, config.getMapConfig("xyz.abcD@foo"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("abcD"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("abcD@foo"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("xyz.abcD"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("xyz.abcD@foo"));
     }
 }

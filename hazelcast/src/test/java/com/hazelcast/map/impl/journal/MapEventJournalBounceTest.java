@@ -53,7 +53,7 @@ public class MapEventJournalBounceTest extends AbstractEventJournalBounceTest {
     @Override
     protected Config getConfig() {
         Config config = super.getConfig();
-        config.getMapConfig(TEST_MAP_NAME)
+        config.getMapConfiguration(TEST_MAP_NAME)
               .setEventJournalConfig(new EventJournalConfig().setEnabled(true)
                                                              .setCapacity(10000));
         return config;

@@ -113,7 +113,7 @@ public class LiteMemberClientMapNearCacheBasicTest extends AbstractNearCacheBasi
         Config config = getConfig()
                 .setLiteMember(liteMember);
 
-        MapConfig mapConfig = config.getMapConfig(DEFAULT_NEAR_CACHE_NAME);
+        MapConfig mapConfig = config.getMapConfiguration(DEFAULT_NEAR_CACHE_NAME);
         addMapStoreConfig(mapStore, mapConfig);
         if (liteMember) {
             mapConfig.setNearCacheConfig(nearCacheConfig);

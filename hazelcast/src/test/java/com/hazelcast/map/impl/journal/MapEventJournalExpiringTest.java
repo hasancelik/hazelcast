@@ -37,7 +37,7 @@ public class MapEventJournalExpiringTest<K, V> extends AbstractEventJournalExpir
     @Override
     protected Config getConfig() {
         Config defConfig = super.getConfig();
-        defConfig.getMapConfig(MAP_NAME)
+        defConfig.getMapConfiguration(MAP_NAME)
                  .setInMemoryFormat(getInMemoryFormat());
         return defConfig;
     }

@@ -93,7 +93,7 @@ public class MapIndexJsonTest extends HazelcastTestSupport {
     @Override
     protected Config getConfig() {
         Config config = super.getConfig();
-        config.getMapConfig("default")
+        config.getMapConfiguration("default")
                 .setInMemoryFormat(inMemoryFormat)
                 .setMetadataPolicy(metadataPolicy);
 
@@ -102,7 +102,7 @@ public class MapIndexJsonTest extends HazelcastTestSupport {
     }
 
     protected Config addIndexConfig(Config config) {
-        config.getMapConfig("default")
+        config.getMapConfiguration("default")
                 .addIndexConfig(sortedIndexConfig("longValue"))
                 .addIndexConfig(sortedIndexConfig("doubleValue"))
                 .addIndexConfig(sortedIndexConfig("nestedObject.nestedLongValue"))

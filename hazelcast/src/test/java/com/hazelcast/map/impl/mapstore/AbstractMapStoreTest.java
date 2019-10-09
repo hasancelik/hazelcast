@@ -39,7 +39,7 @@ public abstract class AbstractMapStoreTest extends HazelcastTestSupport {
         Config config = getConfig();
 
         config.getManagementCenterConfig().setEnabled(false);
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
 
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         mapStoreConfig.setImplementation(storeImpl);

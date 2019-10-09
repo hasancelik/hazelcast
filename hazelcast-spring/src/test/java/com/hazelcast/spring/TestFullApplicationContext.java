@@ -311,7 +311,7 @@ public class TestFullApplicationContext extends HazelcastTestSupport {
         assertNotNull(config);
         assertEquals(25, config.getMapConfigs().size());
 
-        MapConfig testMapConfig = config.getMapConfig("testMap");
+        MapConfig testMapConfig = config.getMapConfiguration("testMap");
         assertNotNull(testMapConfig);
         assertEquals("testMap", testMapConfig.getName());
         assertEquals(2, testMapConfig.getBackupCount());
@@ -378,7 +378,7 @@ public class TestFullApplicationContext extends HazelcastTestSupport {
         assertFalse(testNearCacheConfig.isSerializeKeys());
 
         // test that the testMapConfig2's mapStoreConfig implementation
-        MapConfig testMapConfig2 = config.getMapConfig("testMap2");
+        MapConfig testMapConfig2 = config.getMapConfiguration("testMap2");
         assertNotNull(testMapConfig2.getMapStoreConfig().getImplementation());
         assertEquals(dummyMapStore, testMapConfig2.getMapStoreConfig().getImplementation());
         assertEquals(MapStoreConfig.InitialLoadMode.LAZY, testMapConfig2.getMapStoreConfig().getInitialLoadMode());
@@ -405,7 +405,7 @@ public class TestFullApplicationContext extends HazelcastTestSupport {
             }
         }
 
-        MapConfig simpleMapConfig = config.getMapConfig("simpleMap");
+        MapConfig simpleMapConfig = config.getMapConfiguration("simpleMap");
         assertNotNull(simpleMapConfig);
         assertEquals("simpleMap", simpleMapConfig.getName());
         assertEquals(3, simpleMapConfig.getBackupCount());
@@ -417,37 +417,37 @@ public class TestFullApplicationContext extends HazelcastTestSupport {
         // test that the simpleMapConfig does NOT have a nearCacheConfig
         assertNull(simpleMapConfig.getNearCacheConfig());
 
-        MapConfig testMapConfig3 = config.getMapConfig("testMap3");
+        MapConfig testMapConfig3 = config.getMapConfiguration("testMap3");
         assertEquals("com.hazelcast.spring.DummyStoreFactory", testMapConfig3.getMapStoreConfig().getFactoryClassName());
         assertFalse(testMapConfig3.getMapStoreConfig().getProperties().isEmpty());
         assertEquals(testMapConfig3.getMapStoreConfig().getProperty("dummy.property"), "value");
 
-        MapConfig testMapConfig4 = config.getMapConfig("testMap4");
+        MapConfig testMapConfig4 = config.getMapConfiguration("testMap4");
         assertEquals(dummyMapStoreFactory, testMapConfig4.getMapStoreConfig().getFactoryImplementation());
 
-        MapConfig mapWithValueCachingSetToNever = config.getMapConfig("mapWithValueCachingSetToNever");
+        MapConfig mapWithValueCachingSetToNever = config.getMapConfiguration("mapWithValueCachingSetToNever");
         assertEquals(CacheDeserializedValues.NEVER, mapWithValueCachingSetToNever.getCacheDeserializedValues());
 
-        MapConfig mapWithValueCachingSetToAlways = config.getMapConfig("mapWithValueCachingSetToAlways");
+        MapConfig mapWithValueCachingSetToAlways = config.getMapConfiguration("mapWithValueCachingSetToAlways");
         assertEquals(CacheDeserializedValues.ALWAYS, mapWithValueCachingSetToAlways.getCacheDeserializedValues());
 
-        MapConfig mapWithDefaultValueCaching = config.getMapConfig("mapWithDefaultValueCaching");
+        MapConfig mapWithDefaultValueCaching = config.getMapConfiguration("mapWithDefaultValueCaching");
         assertEquals(CacheDeserializedValues.INDEX_ONLY, mapWithDefaultValueCaching.getCacheDeserializedValues());
 
-        MapConfig testMapWithPartitionLostListenerConfig = config.getMapConfig("mapWithPartitionLostListener");
+        MapConfig testMapWithPartitionLostListenerConfig = config.getMapConfiguration("mapWithPartitionLostListener");
         List<MapPartitionLostListenerConfig> partitionLostListenerConfigs
                 = testMapWithPartitionLostListenerConfig.getPartitionLostListenerConfigs();
         assertEquals(1, partitionLostListenerConfigs.size());
         assertEquals("DummyMapPartitionLostListenerImpl", partitionLostListenerConfigs.get(0).getClassName());
 
-        MapConfig testMapWithPartitionStrategyConfig = config.getMapConfig("mapWithPartitionStrategy");
+        MapConfig testMapWithPartitionStrategyConfig = config.getMapConfiguration("mapWithPartitionStrategy");
         assertEquals("com.hazelcast.spring.DummyPartitionStrategy",
                 testMapWithPartitionStrategyConfig.getPartitioningStrategyConfig().getPartitioningStrategyClass());
     }
 
     @Test
     public void testMapNoWanMergePolicy() {
-        MapConfig testMapConfig2 = config.getMapConfig("testMap2");
+        MapConfig testMapConfig2 = config.getMapConfiguration("testMap2");
 
 
         // test testMapConfig2's WanReplicationConfig
@@ -1215,7 +1215,7 @@ public class TestFullApplicationContext extends HazelcastTestSupport {
 
     @Test
     public void testFullQueryCacheConfig() {
-        MapConfig mapConfig = config.getMapConfig("map-with-query-cache");
+        MapConfig mapConfig = config.getMapConfiguration("map-with-query-cache");
         QueryCacheConfig queryCacheConfig = mapConfig.getQueryCacheConfigs().get(0);
         EntryListenerConfig entryListenerConfig = queryCacheConfig.getEntryListenerConfigs().get(0);
 
@@ -1248,7 +1248,7 @@ public class TestFullApplicationContext extends HazelcastTestSupport {
 
     @Test
     public void testMapNativeMaxSizePolicy() {
-        MapConfig mapConfig = config.getMapConfig("map-with-native-max-size-policy");
+        MapConfig mapConfig = config.getMapConfiguration("map-with-native-max-size-policy");
         MaxSizeConfig maxSizeConfig = mapConfig.getMaxSizeConfig();
 
         assertEquals(MaxSizeConfig.MaxSizePolicy.USED_NATIVE_MEMORY_PERCENTAGE, maxSizeConfig.getMaxSizePolicy());
@@ -1288,10 +1288,10 @@ public class TestFullApplicationContext extends HazelcastTestSupport {
 
     @Test
     public void testMapEvictionPolicies() {
-        assertEquals(EvictionPolicy.LFU, config.getMapConfig("lfuEvictionMap").getEvictionPolicy());
-        assertEquals(EvictionPolicy.LRU, config.getMapConfig("lruEvictionMap").getEvictionPolicy());
-        assertEquals(EvictionPolicy.NONE, config.getMapConfig("noneEvictionMap").getEvictionPolicy());
-        assertEquals(EvictionPolicy.RANDOM, config.getMapConfig("randomEvictionMap").getEvictionPolicy());
+        assertEquals(EvictionPolicy.LFU, config.getMapConfiguration("lfuEvictionMap").getEvictionPolicy());
+        assertEquals(EvictionPolicy.LRU, config.getMapConfiguration("lruEvictionMap").getEvictionPolicy());
+        assertEquals(EvictionPolicy.NONE, config.getMapConfiguration("noneEvictionMap").getEvictionPolicy());
+        assertEquals(EvictionPolicy.RANDOM, config.getMapConfiguration("randomEvictionMap").getEvictionPolicy());
     }
 
     @Test
@@ -1303,12 +1303,12 @@ public class TestFullApplicationContext extends HazelcastTestSupport {
     }
 
     private EvictionPolicy getNearCacheEvictionPolicy(String mapName, Config config) {
-        return config.getMapConfig(mapName).getNearCacheConfig().getEvictionConfig().getEvictionPolicy();
+        return config.getMapConfiguration(mapName).getNearCacheConfig().getEvictionConfig().getEvictionPolicy();
     }
 
     @Test
     public void testMapEvictionPolicyClassName() {
-        MapConfig mapConfig = config.getMapConfig("mapWithMapEvictionPolicyClassName");
+        MapConfig mapConfig = config.getMapConfiguration("mapWithMapEvictionPolicyClassName");
         String expectedComparatorClassName = "com.hazelcast.map.eviction.LRUEvictionPolicy";
 
         assertEquals(expectedComparatorClassName, mapConfig.getMapEvictionPolicy().getClass().getName());
@@ -1316,14 +1316,14 @@ public class TestFullApplicationContext extends HazelcastTestSupport {
 
     @Test
     public void testMapEvictionPolicyImpl() {
-        MapConfig mapConfig = config.getMapConfig("mapWithMapEvictionPolicyImpl");
+        MapConfig mapConfig = config.getMapConfiguration("mapWithMapEvictionPolicyImpl");
 
         assertEquals(DummyMapEvictionPolicy.class, mapConfig.getMapEvictionPolicy().getClass());
     }
 
     @Test
     public void testWhenBothMapEvictionPolicyClassNameAndEvictionPolicySet() {
-        MapConfig mapConfig = config.getMapConfig("mapBothMapEvictionPolicyClassNameAndEvictionPolicy");
+        MapConfig mapConfig = config.getMapConfiguration("mapBothMapEvictionPolicyClassNameAndEvictionPolicy");
         String expectedComparatorClassName = "com.hazelcast.map.eviction.LRUEvictionPolicy";
 
         assertEquals(expectedComparatorClassName, mapConfig.getMapEvictionPolicy().getClass().getName());

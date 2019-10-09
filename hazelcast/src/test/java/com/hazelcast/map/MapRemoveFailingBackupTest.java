@@ -61,7 +61,7 @@ public class MapRemoveFailingBackupTest extends HazelcastTestSupport {
         Config config = getConfig();
         config.getSerializationConfig().addDataSerializableFactory(100, new Factory());
         config.setProperty(GroupProperty.PARTITION_BACKUP_SYNC_INTERVAL.getName(), "5");
-        config.getMapConfig(mapName).setReadBackupData(true);
+        config.getMapConfiguration(mapName).setReadBackupData(true);
         HazelcastInstance hz1 = factory.newHazelcastInstance(config);
         HazelcastInstance hz2 = factory.newHazelcastInstance(config);
         final NodeEngine nodeEngine = getNodeEngineImpl(hz1);

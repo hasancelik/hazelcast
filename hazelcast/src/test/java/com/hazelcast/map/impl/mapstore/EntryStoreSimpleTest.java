@@ -80,7 +80,7 @@ public class EntryStoreSimpleTest extends HazelcastTestSupport {
         Config config = smallInstanceConfig();
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         mapStoreConfig.setEnabled(true).setImplementation(testEntryStore);
-        config.getMapConfig("default")
+        config.getMapConfiguration("default")
                 .setMapStoreConfig(mapStoreConfig)
                 .setInMemoryFormat(inMemoryFormat);
         return config;

@@ -702,7 +702,7 @@ public class DynamicConfigTest extends HazelcastTestSupport {
     private void assertConfigurationsEqualsOnAllMembers(MapConfig mapConfig) {
         String name = mapConfig.getName();
         for (HazelcastInstance instance : members) {
-            MapConfig registeredConfig = instance.getConfig().getMapConfig(name);
+            MapConfig registeredConfig = instance.getConfig().getMapConfiguration(name);
             assertEquals(mapConfig, registeredConfig);
         }
     }

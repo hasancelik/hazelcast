@@ -52,11 +52,11 @@ public class MapEventJournalBasicTest<K, V> extends AbstractEventJournalBasicTes
                 .setInitialLoadMode(EAGER)
                 .setImplementation(new CustomMapStore());
 
-        config.getMapConfig(NON_EXPIRING_MAP)
+        config.getMapConfiguration(NON_EXPIRING_MAP)
               .setInMemoryFormat(getInMemoryFormat())
               .setMapStoreConfig(mapStoreConfig);
 
-        config.getMapConfig(EXPIRING_MAP).setTimeToLiveSeconds(1)
+        config.getMapConfiguration(EXPIRING_MAP).setTimeToLiveSeconds(1)
               .setInMemoryFormat(getInMemoryFormat());
 
         return config;

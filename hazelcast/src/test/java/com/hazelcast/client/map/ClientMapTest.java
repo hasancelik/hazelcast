@@ -91,11 +91,11 @@ public class ClientMapTest extends HazelcastTestSupport {
     @Before
     public void setup() {
         Config config = getConfig();
-        config.getMapConfig("flushMap").
+        config.getMapConfiguration("flushMap").
                 setMapStoreConfig(new MapStoreConfig()
                         .setWriteDelaySeconds(1000)
                         .setImplementation(flushMapStore));
-        config.getMapConfig("putTransientMap").
+        config.getMapConfiguration("putTransientMap").
                 setMapStoreConfig(new MapStoreConfig()
                         .setWriteDelaySeconds(1000)
                         .setImplementation(transientMapStore));

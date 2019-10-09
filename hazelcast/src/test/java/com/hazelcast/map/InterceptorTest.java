@@ -244,7 +244,7 @@ public class InterceptorTest extends HazelcastTestSupport {
         MapStoreConfig mapStoreConfig = new MapStoreConfig()
                 .setEnabled(true)
                 .setImplementation(new DummyLoader());
-        config.getMapConfig(name).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(name).setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance instance = createHazelcastInstance(config);
         IMap<Integer, String> map = instance.getMap(name);

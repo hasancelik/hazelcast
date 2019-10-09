@@ -1063,7 +1063,7 @@ public class ConfigXmlGeneratorTest {
 
         Config xmlConfig = getNewConfigViaXMLGenerator(config);
 
-        MapConfig actualConfig = xmlConfig.getMapConfig("carMap");
+        MapConfig actualConfig = xmlConfig.getMapConfiguration("carMap");
         AttributeConfig xmlAttrConfig = actualConfig.getAttributeConfigs().get(0);
         assertEquals(attrConfig.getName(), xmlAttrConfig.getName());
         assertEquals(attrConfig.getExtractorClassName(), xmlAttrConfig.getExtractorClassName());
@@ -1092,7 +1092,7 @@ public class ConfigXmlGeneratorTest {
 
         Config xmlConfig = getNewConfigViaXMLGenerator(config);
 
-        NearCacheConfig actualConfig = xmlConfig.getMapConfig("nearCacheTest").getNearCacheConfig();
+        NearCacheConfig actualConfig = xmlConfig.getMapConfiguration("nearCacheTest").getNearCacheConfig();
         assertEquals(expectedConfig, actualConfig);
     }
 
@@ -1112,7 +1112,7 @@ public class ConfigXmlGeneratorTest {
 
         Config xmlConfig = getNewConfigViaXMLGenerator(config);
 
-        NearCacheConfig actualConfig = xmlConfig.getMapConfig("nearCacheTest").getNearCacheConfig();
+        NearCacheConfig actualConfig = xmlConfig.getMapConfiguration("nearCacheTest").getNearCacheConfig();
         assertEquals(23, actualConfig.getEvictionConfig().getSize());
         assertEquals("LRU", actualConfig.getEvictionConfig().getEvictionPolicy().name());
         assertEquals(expectedConfig, actualConfig);

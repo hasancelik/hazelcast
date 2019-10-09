@@ -115,7 +115,7 @@ public class MapContainerCreationUponDestroyStressTest extends HazelcastTestSupp
 
     private IMap<Long, Long> getIMap(String mapName) {
         Config config = new Config();
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         mapConfig.setEvictionPolicy(EvictionPolicy.LRU);
         mapConfig.getMaxSizeConfig().setSize(10000).setMaxSizePolicy(PER_NODE);
         HazelcastInstance node = createHazelcastInstance(config);

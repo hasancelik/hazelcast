@@ -752,7 +752,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig("testCaseInsensitivity");
+        MapConfig mapConfig = config.getMapConfiguration("testCaseInsensitivity");
 
         assertEquals(InMemoryFormat.BINARY, mapConfig.getInMemoryFormat());
         assertEquals(EvictionPolicy.NONE, mapConfig.getEvictionPolicy());
@@ -891,7 +891,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapStoreConfig mapStoreConfig = config.getMapConfig("mymap").getMapStoreConfig();
+        MapStoreConfig mapStoreConfig = config.getMapConfiguration("mymap").getMapStoreConfig();
 
         assertTrue(mapStoreConfig.isEnabled());
         assertEquals(MapStoreConfig.InitialLoadMode.LAZY, mapStoreConfig.getInitialLoadMode());
@@ -907,7 +907,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig("mymap");
+        MapConfig mapConfig = config.getMapConfiguration("mymap");
 
         assertEquals(MetadataPolicy.CREATE_ON_UPDATE, mapConfig.getMetadataPolicy());
     }
@@ -921,7 +921,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig("mymap");
+        MapConfig mapConfig = config.getMapConfiguration("mymap");
 
         assertEquals(MetadataPolicy.CREATE_ON_UPDATE, mapConfig.getMetadataPolicy());
     }
@@ -946,10 +946,10 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
 
         Config config = buildConfig(xml);
 
-        assertEquals(EvictionPolicy.LRU, config.getMapConfig("lruMap").getEvictionPolicy());
-        assertEquals(EvictionPolicy.LFU, config.getMapConfig("lfuMap").getEvictionPolicy());
-        assertEquals(EvictionPolicy.NONE, config.getMapConfig("noneMap").getEvictionPolicy());
-        assertEquals(EvictionPolicy.RANDOM, config.getMapConfig("randomMap").getEvictionPolicy());
+        assertEquals(EvictionPolicy.LRU, config.getMapConfiguration("lruMap").getEvictionPolicy());
+        assertEquals(EvictionPolicy.LFU, config.getMapConfiguration("lfuMap").getEvictionPolicy());
+        assertEquals(EvictionPolicy.NONE, config.getMapConfiguration("noneMap").getEvictionPolicy());
+        assertEquals(EvictionPolicy.RANDOM, config.getMapConfiguration("randomMap").getEvictionPolicy());
     }
 
     @Override
@@ -961,7 +961,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig("mymap");
+        MapConfig mapConfig = config.getMapConfiguration("mymap");
 
         assertEquals(CacheDeserializedValues.INDEX_ONLY, mapConfig.getCacheDeserializedValues());
     }
@@ -976,7 +976,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig("mymap");
+        MapConfig mapConfig = config.getMapConfiguration("mymap");
 
         assertEquals(CacheDeserializedValues.NEVER, mapConfig.getCacheDeserializedValues());
     }
@@ -991,7 +991,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig("mymap");
+        MapConfig mapConfig = config.getMapConfiguration("mymap");
 
         assertEquals(CacheDeserializedValues.ALWAYS, mapConfig.getCacheDeserializedValues());
     }
@@ -1006,7 +1006,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig("mymap");
+        MapConfig mapConfig = config.getMapConfiguration("mymap");
 
         assertEquals(CacheDeserializedValues.INDEX_ONLY, mapConfig.getCacheDeserializedValues());
     }
@@ -1021,7 +1021,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapStoreConfig mapStoreConfig = config.getMapConfig("mymap").getMapStoreConfig();
+        MapStoreConfig mapStoreConfig = config.getMapConfiguration("mymap").getMapStoreConfig();
 
         assertTrue(mapStoreConfig.isEnabled());
         assertEquals(MapStoreConfig.InitialLoadMode.EAGER, mapStoreConfig.getInitialLoadMode());
@@ -1039,7 +1039,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapStoreConfig mapStoreConfig = config.getMapConfig("mymap").getMapStoreConfig();
+        MapStoreConfig mapStoreConfig = config.getMapConfiguration("mymap").getMapStoreConfig();
 
         assertEquals(23, mapStoreConfig.getWriteBatchSize());
     }
@@ -1071,7 +1071,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
     private MapStoreConfig getWriteCoalescingMapStoreConfig(boolean writeCoalescing, boolean useDefault) {
         String xml = getWriteCoalescingConfigXml(writeCoalescing, useDefault);
         Config config = buildConfig(xml);
-        return config.getMapConfig("mymap").getMapStoreConfig();
+        return config.getMapConfiguration("mymap").getMapStoreConfig();
     }
 
     private String getWriteCoalescingConfigXml(boolean value, boolean useDefault) {
@@ -1097,7 +1097,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         NearCacheConfig ncConfig = mapConfig.getNearCacheConfig();
 
         assertEquals(InMemoryFormat.OBJECT, ncConfig.getInMemoryFormat());
@@ -1117,7 +1117,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         NearCacheConfig ncConfig = mapConfig.getNearCacheConfig();
 
         assertEquals(InMemoryFormat.NATIVE, ncConfig.getInMemoryFormat());
@@ -1158,7 +1158,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
     }
 
     private EvictionPolicy getNearCacheEvictionPolicy(String mapName, Config config) {
-        return config.getMapConfig(mapName).getNearCacheConfig().getEvictionConfig().getEvictionPolicy();
+        return config.getMapConfiguration(mapName).getNearCacheConfig().getEvictionConfig().getEvictionPolicy();
     }
 
     @Override
@@ -1236,7 +1236,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         NearCacheConfig nearCacheConfig = mapConfig.getNearCacheConfig();
 
         assertEquals(InMemoryFormat.OBJECT, nearCacheConfig.getInMemoryFormat());
@@ -1268,7 +1268,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         WanReplicationRef wanRef = mapConfig.getWanReplicationRef();
 
         assertEquals(refName, wanRef.getName());
@@ -1465,7 +1465,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
         String xml = createMapPartitionLostListenerConfiguredXml(mapName, listenerName);
 
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig("map1");
+        MapConfig mapConfig = config.getMapConfiguration("map1");
         assertMapPartitionLostListener(listenerName, mapConfig);
     }
 
@@ -2301,7 +2301,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig("foobar");
+        MapConfig mapConfig = config.getMapConfiguration("foobar");
 
         assertFalse(config.getMapConfigs().isEmpty());
         assertEquals("customSplitBrainProtectionRule", mapConfig.getSplitBrainProtectionName());
@@ -2390,7 +2390,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig("people");
+        MapConfig mapConfig = config.getMapConfiguration("people");
 
         assertFalse(mapConfig.getIndexConfigs().isEmpty());
         assertIndexEqual("name", false, mapConfig.getIndexConfigs().get(0));
@@ -2415,7 +2415,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig("people");
+        MapConfig mapConfig = config.getMapConfiguration("people");
 
         assertFalse(mapConfig.getAttributeConfigs().isEmpty());
         assertAttributeEqual("power", "com.car.PowerExtractor", mapConfig.getAttributeConfigs().get(0));
@@ -2513,7 +2513,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        QueryCacheConfig queryCacheConfig = config.getMapConfig("test").getQueryCacheConfigs().get(0);
+        QueryCacheConfig queryCacheConfig = config.getMapConfiguration("test").getQueryCacheConfigs().get(0);
         EntryListenerConfig entryListenerConfig = queryCacheConfig.getEntryListenerConfigs().get(0);
 
         assertEquals("cache-name", queryCacheConfig.getName());
@@ -2551,10 +2551,10 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + HAZELCAST_END_TAG;
 
         Config config = buildConfig(xml);
-        QueryCacheConfig queryCacheClassNameConfig = config.getMapConfig("test").getQueryCacheConfigs().get(0);
+        QueryCacheConfig queryCacheClassNameConfig = config.getMapConfiguration("test").getQueryCacheConfigs().get(0);
         assertEquals("com.hazelcast.examples.SimplePredicate", queryCacheClassNameConfig.getPredicateConfig().getClassName());
 
-        QueryCacheConfig queryCacheSqlConfig = config.getMapConfig("test").getQueryCacheConfigs().get(1);
+        QueryCacheConfig queryCacheSqlConfig = config.getMapConfiguration("test").getQueryCacheConfigs().get(1);
         assertEquals("%age=40", queryCacheSqlConfig.getPredicateConfig().getSql());
     }
 
@@ -2639,7 +2639,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
             Object[] objects = {maxSizePolicy.toString()};
             String xml = messageFormat.format(objects);
             Config config = buildConfig(xml);
-            MapConfig mapConfig = config.getMapConfig("mymap");
+            MapConfig mapConfig = config.getMapConfiguration("mymap");
             MaxSizeConfig maxSizeConfig = mapConfig.getMaxSizeConfig();
 
             assertEquals(9991, maxSizeConfig.getSize());
@@ -2902,7 +2902,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + "</map>"
                 + HAZELCAST_END_TAG;
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig("test");
+        MapConfig mapConfig = config.getMapConfiguration("test");
 
         assertEquals(mapEvictionPolicyClassName, mapConfig.getMapEvictionPolicy().getClass().getName());
     }
@@ -2918,7 +2918,7 @@ public class XMLConfigBuilderTest extends AbstractConfigBuilderTest {
                 + "</map>"
                 + HAZELCAST_END_TAG;
         Config config = buildConfig(xml);
-        MapConfig mapConfig = config.getMapConfig("test");
+        MapConfig mapConfig = config.getMapConfiguration("test");
 
         assertEquals(mapEvictionPolicyClassName, mapConfig.getMapEvictionPolicy().getClass().getName());
     }

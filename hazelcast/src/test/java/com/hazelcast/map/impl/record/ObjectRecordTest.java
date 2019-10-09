@@ -45,7 +45,7 @@ public class ObjectRecordTest extends HazelcastTestSupport {
     public void setup() {
         String mapName = randomMapName();
         Config config = new Config();
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         mapConfig.setInMemoryFormat(InMemoryFormat.OBJECT);
         mapConfig.setStatisticsEnabled(false);
         HazelcastInstance instance = createHazelcastInstance(config);

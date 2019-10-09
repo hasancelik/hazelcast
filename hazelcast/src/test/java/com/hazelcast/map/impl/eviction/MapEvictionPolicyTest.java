@@ -55,7 +55,7 @@ public class MapEvictionPolicyTest extends HazelcastTestSupport {
 
         Config config = getConfig();
         config.setProperty(PARTITION_COUNT.getName(), "1");
-        config.getMapConfig(mapName)
+        config.getMapConfiguration(mapName)
                 .setMapEvictionPolicy(new OddEvictor())
                 .getMaxSizeConfig()
                 .setMaxSizePolicy(PER_PARTITION).setSize(sampleCount);

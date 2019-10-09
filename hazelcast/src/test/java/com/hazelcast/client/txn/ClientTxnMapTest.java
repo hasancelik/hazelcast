@@ -584,7 +584,7 @@ public class ClientTxnMapTest {
         nearCacheConfig.setCacheLocalEntries(true);
 
         Config serverConfig = new Config();
-        serverConfig.getMapConfig(mapName).setNearCacheConfig(nearCacheConfig);
+        serverConfig.getMapConfiguration(mapName).setNearCacheConfig(nearCacheConfig);
 
         HazelcastInstance server = hazelcastFactory.newHazelcastInstance(serverConfig);
 

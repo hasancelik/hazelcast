@@ -116,13 +116,13 @@ public class MapSplitBrainTest extends SplitBrainTestSupport {
                 .setBatchSize(10);
 
         Config config = super.config();
-        config.getMapConfig(mapNameA)
+        config.getMapConfiguration(mapNameA)
                 .setInMemoryFormat(inMemoryFormat)
                 .setMergePolicyConfig(mergePolicyConfig)
                 .setBackupCount(1)
                 .setAsyncBackupCount(0)
                 .setStatisticsEnabled(false);
-        config.getMapConfig(mapNameB)
+        config.getMapConfiguration(mapNameB)
                 .setInMemoryFormat(inMemoryFormat)
                 .setMergePolicyConfig(mergePolicyConfig)
                 .setBackupCount(1)

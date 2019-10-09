@@ -86,7 +86,7 @@ public class ClientMapWANExceptionTest extends HazelcastTestSupport {
         wanRef.setMergePolicy(PassThroughMergePolicy.class.getName());
 
         config.addWanReplicationConfig(wanConfig);
-        config.getMapConfig("default").setWanReplicationRef(wanRef);
+        config.getMapConfiguration("default").setWanReplicationRef(wanRef);
         return config;
     }
 

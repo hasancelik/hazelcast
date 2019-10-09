@@ -44,7 +44,7 @@ public class NodeQueryCacheConfigurator extends AbstractQueryCacheConfigurator {
 
     @Override
     public QueryCacheConfig getOrCreateConfiguration(String mapName, String cacheName, String cacheId) {
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
 
         QueryCacheConfig queryCacheConfig = findQueryCacheConfigFromMapConfig(mapConfig, cacheName);
 
@@ -88,7 +88,7 @@ public class NodeQueryCacheConfigurator extends AbstractQueryCacheConfigurator {
 
     @Override
     public void removeConfiguration(String mapName, String cacheName) {
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         List<QueryCacheConfig> queryCacheConfigs = mapConfig.getQueryCacheConfigs();
         if (queryCacheConfigs == null || queryCacheConfigs.isEmpty()) {
             return;

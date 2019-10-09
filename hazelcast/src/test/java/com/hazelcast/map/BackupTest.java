@@ -56,7 +56,7 @@ public class BackupTest extends HazelcastTestSupport {
 
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory();
         Config config = getConfig();
-        config.getMapConfig(mapName).setBackupCount(0);
+        config.getMapConfiguration(mapName).setBackupCount(0);
 
         HazelcastInstance master = factory.newHazelcastInstance(config);
         IMap<Integer, Integer> map = master.getMap(mapName);
@@ -78,7 +78,7 @@ public class BackupTest extends HazelcastTestSupport {
         final int nodeCount = 6;
         final int size = 10000;
         Config config = getConfig();
-        config.getMapConfig(mapName).setBackupCount(0);
+        config.getMapConfiguration(mapName).setBackupCount(0);
 
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory();
         Collection<HazelcastInstance> instances = new ArrayList<HazelcastInstance>(nodeCount);
@@ -128,7 +128,7 @@ public class BackupTest extends HazelcastTestSupport {
 
         Config config = getConfig();
         config.setProperty(GroupProperty.PARTITION_BACKUP_SYNC_INTERVAL.getName(), "1");
-        config.getMapConfig(name).setBackupCount(backupCount).setStatisticsEnabled(true);
+        config.getMapConfiguration(name).setBackupCount(backupCount).setStatisticsEnabled(true);
 
         List<HazelcastInstance> instances = new ArrayList<HazelcastInstance>(nodeCount);
 
@@ -206,7 +206,7 @@ public class BackupTest extends HazelcastTestSupport {
         final TestHazelcastInstanceFactory nodeFactory = createHazelcastInstanceFactory();
         final Config config = getConfig();
         config.setProperty(GroupProperty.PARTITION_BACKUP_SYNC_INTERVAL.getName(), "1");
-        config.getMapConfig(mapName).setBackupCount(1).setStatisticsEnabled(true);
+        config.getMapConfiguration(mapName).setBackupCount(1).setStatisticsEnabled(true);
 
         final Random rand = new Random();
         final AtomicReferenceArray<HazelcastInstance> instances = new AtomicReferenceArray<HazelcastInstance>(nodeCount);

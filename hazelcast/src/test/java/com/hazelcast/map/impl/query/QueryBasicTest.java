@@ -984,7 +984,7 @@ public class QueryBasicTest extends HazelcastTestSupport {
     public void testOptionalUnorderedIndexQuerying() {
         String name = randomMapName();
         Config config = smallInstanceConfig();
-        config.getMapConfig(name).addIndexConfig(new IndexConfig(IndexType.HASH, "attribute"));
+        config.getMapConfiguration(name).addIndexConfig(new IndexConfig(IndexType.HASH, "attribute"));
         HazelcastInstance instance = createHazelcastInstance(config);
         IMap<Integer, ObjectWithOptional<Integer>> map = instance.getMap(name);
 
@@ -1009,7 +1009,7 @@ public class QueryBasicTest extends HazelcastTestSupport {
     public void testOptionalOrderedIndexQuerying() {
         String name = randomMapName();
         Config config = smallInstanceConfig();
-        config.getMapConfig(name).addIndexConfig(new IndexConfig(IndexType.SORTED, "attribute"));
+        config.getMapConfiguration(name).addIndexConfig(new IndexConfig(IndexType.SORTED, "attribute"));
         HazelcastInstance instance = createHazelcastInstance(config);
         IMap<Integer, ObjectWithOptional<Integer>> map = instance.getMap(name);
 

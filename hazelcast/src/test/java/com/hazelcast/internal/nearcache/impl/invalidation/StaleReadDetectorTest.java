@@ -93,7 +93,7 @@ public class StaleReadDetectorTest extends HazelcastTestSupport {
         nearCacheConfig.setCacheLocalEntries(true);
         nearCacheConfig.setInvalidateOnChange(invalidateOnChange);
 
-        MapConfig mapConfig = config.getMapConfig(MAP_NAME);
+        MapConfig mapConfig = config.getMapConfiguration(MAP_NAME);
         mapConfig.setNearCacheConfig(nearCacheConfig);
 
         return config;

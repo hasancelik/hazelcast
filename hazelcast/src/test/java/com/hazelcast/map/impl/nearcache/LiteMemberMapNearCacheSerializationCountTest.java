@@ -180,7 +180,7 @@ public class LiteMemberMapNearCacheSerializationCountTest extends AbstractNearCa
                 .setProperty(PARTITION_COUNT.getName(), "1")
                 .setProperty(PARTITION_OPERATION_THREAD_COUNT.getName(), "1")
                 .setLiteMember(liteMember);
-        MapConfig mapConfig = config.getMapConfig(DEFAULT_NEAR_CACHE_NAME)
+        MapConfig mapConfig = config.getMapConfiguration(DEFAULT_NEAR_CACHE_NAME)
                 .setInMemoryFormat(mapInMemoryFormat)
                 .setBackupCount(0)
                 .setAsyncBackupCount(0);

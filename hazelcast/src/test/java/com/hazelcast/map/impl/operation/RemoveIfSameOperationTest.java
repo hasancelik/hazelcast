@@ -61,7 +61,7 @@ public class RemoveIfSameOperationTest extends HazelcastTestSupport {
         });
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(mapName).setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance node = createHazelcastInstance(config);
 

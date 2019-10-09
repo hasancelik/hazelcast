@@ -104,7 +104,7 @@ public class MapIndexBackupTest extends HazelcastTestSupport {
 
     private HazelcastInstance createNode(TestHazelcastInstanceFactory instanceFactory) {
         Config config = getConfig();
-        MapConfig mapConfig = config.getMapConfig("book");
+        MapConfig mapConfig = config.getMapConfiguration("book");
         mapConfig.addIndexConfig(new IndexConfig(IndexType.HASH, "author"));
         mapConfig.addIndexConfig(new IndexConfig(IndexType.SORTED, "year"));
         mapConfig.setMapStoreConfig(new MapStoreConfig().setImplementation(new BookMapLoader()));

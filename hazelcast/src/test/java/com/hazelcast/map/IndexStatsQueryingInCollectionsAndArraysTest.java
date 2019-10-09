@@ -68,7 +68,7 @@ public class IndexStatsQueryingInCollectionsAndArraysTest extends HazelcastTestS
 
         Config config = getConfig();
         config.setProperty(GroupProperty.PARTITION_COUNT.getName(), Integer.toString(PARTITIONS));
-        config.getMapConfig(mapName).setInMemoryFormat(inMemoryFormat);
+        config.getMapConfiguration(mapName).setInMemoryFormat(inMemoryFormat);
 
         instance = createHazelcastInstance(config);
         map = instance.getMap(mapName);

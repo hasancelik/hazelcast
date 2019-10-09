@@ -92,7 +92,7 @@ public class ClientMapPartitionLostListenerTest extends HazelcastTestSupport {
     public void test_mapPartitionLostListener_invoked() {
         String mapName = randomMapName();
         Config config = getConfig();
-        config.getMapConfig(mapName).setBackupCount(0);
+        config.getMapConfiguration(mapName).setBackupCount(0);
         ClientConfig clientConfig = getClientConfig();
 
         HazelcastInstance instance = hazelcastFactory.newHazelcastInstance(config);
@@ -113,7 +113,7 @@ public class ClientMapPartitionLostListenerTest extends HazelcastTestSupport {
     public void test_mapPartitionLostListener_invoked_fromOtherNode() {
         String mapName = randomMapName();
         Config config = getConfig();
-        config.getMapConfig(mapName).setBackupCount(0);
+        config.getMapConfiguration(mapName).setBackupCount(0);
 
         HazelcastInstance instance1 = hazelcastFactory.newHazelcastInstance(config);
         ClientConfig clientConfig = getClientConfig();

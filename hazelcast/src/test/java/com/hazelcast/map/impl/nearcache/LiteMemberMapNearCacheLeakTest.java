@@ -113,7 +113,7 @@ public class LiteMemberMapNearCacheLeakTest extends AbstractNearCacheLeakTest<Da
         Config config = getConfig()
                 .setLiteMember(liteMember);
 
-        MapConfig mapConfig = config.getMapConfig(DEFAULT_NEAR_CACHE_NAME);
+        MapConfig mapConfig = config.getMapConfiguration(DEFAULT_NEAR_CACHE_NAME);
         if (liteMember) {
             mapConfig.setNearCacheConfig(nearCacheConfig);
         }

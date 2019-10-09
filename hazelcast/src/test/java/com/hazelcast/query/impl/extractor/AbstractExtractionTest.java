@@ -112,7 +112,7 @@ public abstract class AbstractExtractionTest extends AbstractExtractionSpecifica
             }
 
             indexConfig.setType(index == Index.ORDERED ? IndexType.SORTED : IndexType.HASH);
-            config.getMapConfig("map").addIndexConfig(indexConfig);
+            config.getMapConfiguration("map").addIndexConfig(indexConfig);
         }
     }
 

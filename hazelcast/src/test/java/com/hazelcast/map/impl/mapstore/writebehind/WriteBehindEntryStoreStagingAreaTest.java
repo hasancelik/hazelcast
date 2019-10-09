@@ -112,7 +112,7 @@ public class WriteBehindEntryStoreStagingAreaTest extends HazelcastTestSupport {
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         mapStoreConfig.setImplementation(entryStore).setEnabled(true);
         mapStoreConfig.setWriteDelaySeconds(1);
-        config.getMapConfig(mapName).setMapStoreConfig(mapStoreConfig).setTimeToLiveSeconds(ttl);
+        config.getMapConfiguration(mapName).setMapStoreConfig(mapStoreConfig).setTimeToLiveSeconds(ttl);
         return config;
     }
 }

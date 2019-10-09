@@ -52,7 +52,7 @@ public class EntryStoreBackupTest extends HazelcastTestSupport {
         Config config = new Config();
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         mapStoreConfig.setImplementation(entryLoader).setEnabled(true);
-        config.getMapConfig("default").setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration("default").setMapStoreConfig(mapStoreConfig);
         HazelcastInstance[] instances = factory.newInstances(config);
 
         IMap<Integer, Integer> map = instances[0].getMap(randomMapName());
@@ -78,7 +78,7 @@ public class EntryStoreBackupTest extends HazelcastTestSupport {
         Config config = new Config();
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         mapStoreConfig.setImplementation(entryLoader).setEnabled(true);
-        config.getMapConfig("default").setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration("default").setMapStoreConfig(mapStoreConfig);
         HazelcastInstance[] instances = factory.newInstances(config);
 
         IMap<Integer, Integer> map = instances[0].getMap(randomMapName());
@@ -104,7 +104,7 @@ public class EntryStoreBackupTest extends HazelcastTestSupport {
         Config config = new Config();
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         mapStoreConfig.setImplementation(entryLoader).setEnabled(true);
-        config.getMapConfig("default").setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration("default").setMapStoreConfig(mapStoreConfig);
         HazelcastInstance[] instances = factory.newInstances(config);
 
         IMap<Integer, Integer> map = instances[0].getMap(randomMapName());

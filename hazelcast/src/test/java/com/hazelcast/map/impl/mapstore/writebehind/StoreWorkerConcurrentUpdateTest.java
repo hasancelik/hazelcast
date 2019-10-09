@@ -63,7 +63,7 @@ public class StoreWorkerConcurrentUpdateTest extends HazelcastTestSupport {
         mapStoreConfig.setImplementation(mapStore).setWriteDelaySeconds(1).setWriteCoalescing(coalesced);
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setBackupCount(0).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(mapName).setBackupCount(0).setMapStoreConfig(mapStoreConfig);
         HazelcastInstance instance = createHazelcastInstance(config);
 
         IMap<Integer, Entry> map = instance.getMap(mapName);

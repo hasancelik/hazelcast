@@ -105,7 +105,7 @@ public class IndexSplitBrainTest extends SplitBrainTestSupport {
     @Override
     protected Config config() {
         Config config = super.config();
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         mapConfig.addIndexConfig(new IndexConfig(IndexType.HASH, "id"));
         return config;
     }

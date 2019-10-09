@@ -118,7 +118,7 @@ public class YamlOnlyConfigBuilderTest {
                 + "    backup-count: 2";
 
         Config config = buildConfig(yaml);
-        MapConfig myMapConfig = config.getMapConfig("myMap");
+        MapConfig myMapConfig = config.getMapConfiguration("myMap");
         assertEquals(2, myMapConfig.getBackupCount());
     }
 

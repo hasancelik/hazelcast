@@ -203,7 +203,7 @@ public class ClientUserCodeDeploymentTest extends HazelcastTestSupport {
         clientConfig.setUserCodeDeploymentConfig(clientUserCodeDeploymentConfig.setEnabled(true));
 
         Config config = createNodeConfig();
-        config.getMapConfig(mapName).addAttributeConfig(new AttributeConfig(attributeName, "usercodedeployment.CapitalizatingFirstnameExtractor"));
+        config.getMapConfiguration(mapName).addAttributeConfig(new AttributeConfig(attributeName, "usercodedeployment.CapitalizatingFirstnameExtractor"));
 
         factory.newHazelcastInstance(config);
         factory.newHazelcastInstance(config);

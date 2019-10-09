@@ -54,7 +54,7 @@ public class MapPutAllWithBatchingTest extends HazelcastTestSupport {
                 .setProperty(GroupProperty.OPERATION_CALL_TIMEOUT_MILLIS.getName(), "3000")
                 .setProperty("hazelcast.map.put.all.batch.size", valueOf(BATCH_SIZE));
 
-        config.getMapConfig("default")
+        config.getMapConfiguration("default")
                 .setBackupCount(1)
                 .setAsyncBackupCount(0);
 

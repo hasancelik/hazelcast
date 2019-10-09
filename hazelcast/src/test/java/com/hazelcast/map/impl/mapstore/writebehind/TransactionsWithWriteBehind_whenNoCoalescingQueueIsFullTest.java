@@ -208,7 +208,7 @@ public class TransactionsWithWriteBehind_whenNoCoalescingQueueIsFullTest extends
         Config config = getConfig();
         config.setProperty(GroupProperty.MAP_WRITE_BEHIND_QUEUE_CAPACITY.toString(),
                 String.valueOf(maxWbqCapacity));
-        config.getMapConfig(mapName)
+        config.getMapConfiguration(mapName)
                 .setBackupCount(1)
                 .setAsyncBackupCount(0)
                 .getMapStoreConfig()

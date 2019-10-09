@@ -121,7 +121,7 @@ public class LocalMapStatsMultipleNodeTest extends HazelcastTestSupport {
         String mapName = randomMapName();
         Config config = new Config();
         config.getProperties().setProperty(GroupProperty.PARTITION_COUNT.getName(), "5");
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         mapConfig.setEvictionPolicy(EvictionPolicy.LRU);
         MaxSizeConfig maxSizeConfig = mapConfig.getMaxSizeConfig();
         maxSizeConfig.setMaxSizePolicy(MaxSizeConfig.MaxSizePolicy.PER_PARTITION);
@@ -199,7 +199,7 @@ public class LocalMapStatsMultipleNodeTest extends HazelcastTestSupport {
         config.getPartitionGroupConfig().addMemberGroupConfig(secondGroupConfig);
         config.getNetworkConfig().getInterfaces().addInterface("127.0.0.*");
 
-        config.getMapConfig(mapName).setBackupCount(2);
+        config.getMapConfiguration(mapName).setBackupCount(2);
 
         return config;
     }

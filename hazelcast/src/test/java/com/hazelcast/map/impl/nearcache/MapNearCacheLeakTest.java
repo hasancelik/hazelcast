@@ -113,7 +113,7 @@ public class MapNearCacheLeakTest extends AbstractNearCacheLeakTest<Data, String
     protected Config getConfig(boolean withNearCache) {
         Config config = getConfig();
 
-        MapConfig mapConfig = config.getMapConfig(DEFAULT_NEAR_CACHE_NAME);
+        MapConfig mapConfig = config.getMapConfiguration(DEFAULT_NEAR_CACHE_NAME);
         if (withNearCache) {
             mapConfig.setNearCacheConfig(nearCacheConfig);
         }

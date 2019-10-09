@@ -81,7 +81,7 @@ public class JsonIndexIntegrationTest extends HazelcastTestSupport {
     @Override
     protected Config getConfig() {
         Config config = super.getConfig();
-        config.getMapConfig(MAP_NAME)
+        config.getMapConfiguration(MAP_NAME)
                 .setInMemoryFormat(inMemoryFormat)
                 .setMetadataPolicy(metadataPolicy)
                 .setCacheDeserializedValues(cacheDeserializedValues);

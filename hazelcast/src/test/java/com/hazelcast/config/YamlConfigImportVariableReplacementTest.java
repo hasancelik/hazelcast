@@ -65,7 +65,7 @@ public class YamlConfigImportVariableReplacementTest extends AbstractConfigImpor
         properties.setProperty("backupcount.part1", "0");
         properties.setProperty("backupcount.part2", "6");
         Config config = buildConfig(yaml, properties);
-        MapConfig mapConfig = config.getMapConfig("s");
+        MapConfig mapConfig = config.getMapConfiguration("s");
         assertEquals(6, mapConfig.getBackupCount());
         assertEquals(0, mapConfig.getAsyncBackupCount());
     }
@@ -252,7 +252,7 @@ public class YamlConfigImportVariableReplacementTest extends AbstractConfigImpor
                 + "    - file:///" + file.getAbsolutePath();
 
         Config config = buildConfig(yaml, null);
-        MapConfig myMapConfig = config.getMapConfig("mymap");
+        MapConfig myMapConfig = config.getMapConfiguration("mymap");
         assertEquals("mymap", myMapConfig.getName());
         assertEquals(6, myMapConfig.getBackupCount());
         assertEquals(10, myMapConfig.getTimeToLiveSeconds());
@@ -289,7 +289,7 @@ public class YamlConfigImportVariableReplacementTest extends AbstractConfigImpor
                 + "      time-to-live-seconds: 10\n";
 
         Config config = buildConfig(yaml, null);
-        MapConfig myMapConfig = config.getMapConfig("mymap");
+        MapConfig myMapConfig = config.getMapConfiguration("mymap");
         assertEquals("mymap", myMapConfig.getName());
         assertEquals(6, myMapConfig.getBackupCount());
         assertEquals(10, myMapConfig.getTimeToLiveSeconds());
@@ -328,12 +328,12 @@ public class YamlConfigImportVariableReplacementTest extends AbstractConfigImpor
 
         Config config = buildConfig(yaml, null);
 
-        MapConfig mapInMainMapConfig = config.getMapConfig("mapInMain");
+        MapConfig mapInMainMapConfig = config.getMapConfiguration("mapInMain");
         assertEquals("mapInMain", mapInMainMapConfig.getName());
         assertEquals(5, mapInMainMapConfig.getTimeToLiveSeconds());
         assertEquals(2, mapInMainMapConfig.getBackupCount());
 
-        MapConfig importedMap = config.getMapConfig("importedMap");
+        MapConfig importedMap = config.getMapConfiguration("importedMap");
         assertEquals("importedMap", importedMap.getName());
         assertEquals(10, importedMap.getTimeToLiveSeconds());
         assertEquals(6, importedMap.getBackupCount());

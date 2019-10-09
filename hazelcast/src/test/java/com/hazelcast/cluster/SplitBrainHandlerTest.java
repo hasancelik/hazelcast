@@ -607,7 +607,7 @@ public class SplitBrainHandlerTest extends HazelcastTestSupport {
         JoinConfig join = networkConfig.getJoin();
         join.getMulticastConfig().setEnabled(true);
 
-        config.getMapConfig("default")
+        config.getMapConfiguration("default")
                 .getMergePolicyConfig()
                 .setPolicy(PassThroughMergePolicy.class.getName());
 

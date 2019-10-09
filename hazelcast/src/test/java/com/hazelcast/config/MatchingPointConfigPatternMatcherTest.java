@@ -90,13 +90,13 @@ public class MatchingPointConfigPatternMatcherTest {
         config.setConfigPatternMatcher(new MatchingPointConfigPatternMatcher());
         config.addMapConfig(mapConfig);
 
-        assertEquals(mapConfig, config.getMapConfig("someMap"));
-        assertEquals(mapConfig, config.getMapConfig("someMap@foo"));
+        assertEquals(mapConfig, config.getMapConfiguration("someMap"));
+        assertEquals(mapConfig, config.getMapConfiguration("someMap@foo"));
 
         // non-matching name
-        assertNotEquals(mapConfig, config.getMapConfig("doesNotExist"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("doesNotExist"));
         // non-matching case
-        assertNotEquals(mapConfig, config.getMapConfig("SomeMap"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("SomeMap"));
     }
 
     @Test
@@ -107,7 +107,7 @@ public class MatchingPointConfigPatternMatcherTest {
         config.setConfigPatternMatcher(new MatchingPointConfigPatternMatcher());
         config.addMapConfig(mapConfig);
 
-        assertEquals(mapConfig, config.getMapConfig("com.hazelcast.test.myMap"));
+        assertEquals(mapConfig, config.getMapConfiguration("com.hazelcast.test.myMap"));
     }
 
     @Test
@@ -118,7 +118,7 @@ public class MatchingPointConfigPatternMatcherTest {
         config.setConfigPatternMatcher(new MatchingPointConfigPatternMatcher());
         config.addMapConfig(mapConfig);
 
-        assertEquals(mapConfig, config.getMapConfig("com.hazelcast.test.myMap"));
+        assertEquals(mapConfig, config.getMapConfiguration("com.hazelcast.test.myMap"));
     }
 
     @Test
@@ -129,7 +129,7 @@ public class MatchingPointConfigPatternMatcherTest {
         config.setConfigPatternMatcher(new MatchingPointConfigPatternMatcher());
         config.addMapConfig(mapConfig);
 
-        assertEquals(mapConfig, config.getMapConfig("com.hazelcast.test.myMap"));
+        assertEquals(mapConfig, config.getMapConfiguration("com.hazelcast.test.myMap"));
     }
 
     @Test
@@ -140,7 +140,7 @@ public class MatchingPointConfigPatternMatcherTest {
         config.setConfigPatternMatcher(new MatchingPointConfigPatternMatcher());
         config.addMapConfig(mapConfig);
 
-        assertEquals(mapConfig, config.getMapConfig("com.hazelcast.test.myMap"));
+        assertEquals(mapConfig, config.getMapConfiguration("com.hazelcast.test.myMap"));
     }
 
     @Test
@@ -156,9 +156,9 @@ public class MatchingPointConfigPatternMatcherTest {
         config.addMapConfig(mapConfig3);
 
         // we get the best match
-        assertEquals(mapConfig1, config.getMapConfig("com.hazelcast.myMap"));
-        assertEquals(mapConfig2, config.getMapConfig("com.hazelcast.test.myMap"));
-        assertEquals(mapConfig3, config.getMapConfig("com.hazelcast.test.sub.myMap"));
+        assertEquals(mapConfig1, config.getMapConfiguration("com.hazelcast.myMap"));
+        assertEquals(mapConfig2, config.getMapConfiguration("com.hazelcast.test.myMap"));
+        assertEquals(mapConfig3, config.getMapConfiguration("com.hazelcast.test.sub.myMap"));
     }
 
     @Test(expected = InvalidConfigurationException.class)
@@ -171,7 +171,7 @@ public class MatchingPointConfigPatternMatcherTest {
         config.addMapConfig(mapConfig1);
         config.addMapConfig(mapConfig2);
 
-        config.getMapConfig("com.hazelcast");
+        config.getMapConfiguration("com.hazelcast");
     }
 
     @Test
@@ -183,12 +183,12 @@ public class MatchingPointConfigPatternMatcherTest {
         config.addMapConfig(mapConfig);
 
         // we should match this
-        assertEquals(mapConfig, config.getMapConfig("bc.xyz"));
-        assertEquals(mapConfig, config.getMapConfig("bc.xyz@foo"));
+        assertEquals(mapConfig, config.getMapConfiguration("bc.xyz"));
+        assertEquals(mapConfig, config.getMapConfiguration("bc.xyz@foo"));
 
         // we should not match this anymore (startsWith)
-        assertNotEquals(mapConfig, config.getMapConfig("abc.xyz"));
-        assertNotEquals(mapConfig, config.getMapConfig("abc.xyz@foo"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("abc.xyz"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("abc.xyz@foo"));
     }
 
     @Test
@@ -200,12 +200,12 @@ public class MatchingPointConfigPatternMatcherTest {
         config.addMapConfig(mapConfig);
 
         // we should match this
-        assertEquals(mapConfig, config.getMapConfig("xyz.ab"));
-        assertEquals(mapConfig, config.getMapConfig("xyz.ab@foo"));
+        assertEquals(mapConfig, config.getMapConfiguration("xyz.ab"));
+        assertEquals(mapConfig, config.getMapConfiguration("xyz.ab@foo"));
 
         // we should not match this anymore (endsWith)
-        assertNotEquals(mapConfig, config.getMapConfig("xyz.abc"));
-        assertNotEquals(mapConfig, config.getMapConfig("xyz.abc@foo"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("xyz.abc"));
+        assertNotEquals(mapConfig, config.getMapConfiguration("xyz.abc@foo"));
     }
 
     @Test
@@ -216,6 +216,6 @@ public class MatchingPointConfigPatternMatcherTest {
         config.setConfigPatternMatcher(new MatchingPointConfigPatternMatcher());
         config.addMapConfig(mapConfig);
 
-        assertEquals(mapConfig, config.getMapConfig("com.hazelcast.myMap"));
+        assertEquals(mapConfig, config.getMapConfiguration("com.hazelcast.myMap"));
     }
 }

@@ -81,7 +81,7 @@ public class MapPredicateJsonTest extends HazelcastTestSupport {
     @Override
     protected Config getConfig() {
         Config config = super.getConfig();
-        config.getMapConfig("default")
+        config.getMapConfiguration("default")
                 .setInMemoryFormat(inMemoryFormat)
                 .setMetadataPolicy(metadataPolicy);
         return config;

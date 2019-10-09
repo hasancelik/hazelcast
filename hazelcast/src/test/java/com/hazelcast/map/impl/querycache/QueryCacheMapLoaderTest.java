@@ -100,7 +100,7 @@ public class QueryCacheMapLoaderTest extends HazelcastTestSupport {
     private Config getConfig(String mapName, String cacheName) {
         Config config = new Config();
 
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         mapConfig.getMapStoreConfig()
                 .setEnabled(true)
                 .setImplementation(new TestMapLoader());

@@ -77,7 +77,7 @@ public class EntryCostEstimatorTest
     public void testPutRemoveWithTwoNodeOwnerAndBackup() {
         String name = randomString();
         Config config = getConfig();
-        config.getMapConfig(name).setBackupCount(1);
+        config.getMapConfiguration(name).setBackupCount(1);
         HazelcastInstance[] h = factory.newInstances(config);
         warmUpPartitions(h);
 
@@ -141,8 +141,8 @@ public class EntryCostEstimatorTest
         Config config = getConfig();
         NearCacheConfig nearCacheConfig = new NearCacheConfig();
         nearCacheConfig.setInMemoryFormat(InMemoryFormat.BINARY);
-        config.getMapConfig(nearCachedMapName).setBackupCount(0).setNearCacheConfig(nearCacheConfig);
-        config.getMapConfig(noNearCacheMapName).setBackupCount(0);
+        config.getMapConfiguration(nearCachedMapName).setBackupCount(0).setNearCacheConfig(nearCacheConfig);
+        config.getMapConfiguration(noNearCacheMapName).setBackupCount(0);
 
         HazelcastInstance[] h = factory.newInstances(config);
         warmUpPartitions(h);
@@ -169,8 +169,8 @@ public class EntryCostEstimatorTest
         String BINARY_MAP = "testBinaryFormat";
         String OBJECT_MAP = "testObjectFormat";
         Config config = new Config();
-        config.getMapConfig(BINARY_MAP).setInMemoryFormat(InMemoryFormat.BINARY).setBackupCount(0);
-        config.getMapConfig(OBJECT_MAP).setInMemoryFormat(InMemoryFormat.OBJECT).setBackupCount(0);
+        config.getMapConfiguration(BINARY_MAP).setInMemoryFormat(InMemoryFormat.BINARY).setBackupCount(0);
+        config.getMapConfiguration(OBJECT_MAP).setInMemoryFormat(InMemoryFormat.OBJECT).setBackupCount(0);
 
         int n = 2;
 
@@ -244,7 +244,7 @@ public class EntryCostEstimatorTest
             if (backupCount > nodeCount - 1) {
                 throw new IllegalArgumentException("backupCount > nodeCount - 1");
             }
-            config.getMapConfig(mapName).setBackupCount(backupCount);
+            config.getMapConfiguration(mapName).setBackupCount(backupCount);
             nodes = instanceFactory.newInstances(config, nodeCount);
             return nodes[0].getMap(mapName);
         }

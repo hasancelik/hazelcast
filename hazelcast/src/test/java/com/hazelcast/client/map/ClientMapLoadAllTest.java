@@ -109,7 +109,7 @@ public class ClientMapLoadAllTest extends AbstractMapStoreTest {
         int keysInMapStore = 10000;
 
         Config config = getConfig();
-        MapConfig mapConfig = config.getMapConfig(name);
+        MapConfig mapConfig = config.getMapConfiguration(name);
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         mapStoreConfig.setEnabled(true);
         mapStoreConfig.setImplementation(new MapLoaderTest.DummyMapLoader(keysInMapStore));

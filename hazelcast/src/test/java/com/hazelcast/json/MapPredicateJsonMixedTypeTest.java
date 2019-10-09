@@ -75,7 +75,7 @@ public class MapPredicateJsonMixedTypeTest extends HazelcastTestSupport {
     @Override
     protected Config getConfig() {
         Config config = super.getConfig();
-        config.getMapConfig("default").setInMemoryFormat(inMemoryFormat);
+        config.getMapConfiguration("default").setInMemoryFormat(inMemoryFormat);
         config.getSerializationConfig().addPortableFactory(1, new PortableFactory() {
             @Override
             public Portable create(int classId) {

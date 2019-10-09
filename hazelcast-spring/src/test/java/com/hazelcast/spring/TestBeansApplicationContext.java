@@ -83,8 +83,8 @@ public class TestBeansApplicationContext extends HazelcastTestSupport {
         Config config = instance.getConfig();
         assertEquals("spring-cluster", config.getClusterName());
         assertTrue(config.getNetworkConfig().getJoin().getTcpIpConfig().isEnabled());
-        assertEquals(6, config.getMapConfig("map1").getBackupCount());
-        assertFalse(config.getMapConfig("map1").isStatisticsEnabled());
+        assertEquals(6, config.getMapConfiguration("map1").getBackupCount());
+        assertFalse(config.getMapConfiguration("map1").isStatisticsEnabled());
         assertEquals(64, config.getNativeMemoryConfig().getSize().getValue());
     }
 }

@@ -319,7 +319,7 @@ public class ExpirationTimeTest extends HazelcastTestSupport {
         String mapName = "test";
 
         Config config = getConfig();
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         mapConfig.setBackupCount(0);
         mapConfig.setAsyncBackupCount(0);
         mapConfig.setReadBackupData(true);
@@ -351,7 +351,7 @@ public class ExpirationTimeTest extends HazelcastTestSupport {
     private IMap<Integer, Integer> createMap() {
         String mapName = randomMapName();
         Config config = getConfig();
-        config.getMapConfig(mapName).setInMemoryFormat(inMemoryFormat());
+        config.getMapConfiguration(mapName).setInMemoryFormat(inMemoryFormat());
         HazelcastInstance node = createHazelcastInstance(config);
         return node.getMap(mapName);
     }
@@ -361,7 +361,7 @@ public class ExpirationTimeTest extends HazelcastTestSupport {
         String mapName = randomMapName();
 
         Config config = getConfig();
-        config.getMapConfig(mapName)
+        config.getMapConfiguration(mapName)
                 .setMaxIdleSeconds(maxIdleSeconds)
                 .setInMemoryFormat(inMemoryFormat());
 
@@ -374,7 +374,7 @@ public class ExpirationTimeTest extends HazelcastTestSupport {
         String mapName = randomMapName();
 
         Config config = getConfig();
-        config.getMapConfig(mapName)
+        config.getMapConfiguration(mapName)
                 .setTimeToLiveSeconds(ttlSeconds)
                 .setInMemoryFormat(inMemoryFormat());
 

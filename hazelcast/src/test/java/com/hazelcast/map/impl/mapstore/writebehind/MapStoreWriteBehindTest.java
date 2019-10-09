@@ -80,7 +80,7 @@ public class MapStoreWriteBehindTest extends AbstractMapStoreTest {
         final EventBasedMapStore testMapStore = new EventBasedMapStore();
         Config config = newConfig(testMapStore, 5, InitialLoadMode.EAGER);
         config.setProperty(GroupProperty.PARTITION_COUNT.getName(), "1");
-        config.getMapConfig("default").setMaxIdleSeconds(10);
+        config.getMapConfiguration("default").setMaxIdleSeconds(10);
         HazelcastInstance instance = createHazelcastInstance(config);
         final IMap<Integer, String> map = instance.getMap("default");
 
@@ -365,7 +365,7 @@ public class MapStoreWriteBehindTest extends AbstractMapStoreTest {
     public void testIssue1085WriteBehindBackup() {
         Config config = getConfig();
         String name = "testIssue1085WriteBehindBackup";
-        MapConfig writeBehindBackup = config.getMapConfig(name);
+        MapConfig writeBehindBackup = config.getMapConfiguration(name);
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         mapStoreConfig.setWriteDelaySeconds(5);
         int size = 1000;
@@ -390,7 +390,7 @@ public class MapStoreWriteBehindTest extends AbstractMapStoreTest {
         final int nodeCount = 3;
         Config config = getConfig();
         config.setProperty(GroupProperty.MAP_REPLICA_SCHEDULED_TASK_DELAY_SECONDS.getName(), "30");
-        MapConfig writeBehindBackupConfig = config.getMapConfig(name);
+        MapConfig writeBehindBackupConfig = config.getMapConfiguration(name);
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         mapStoreConfig.setWriteDelaySeconds(5);
         final MapStoreWithStoreCount mapStore = new MapStoreWithStoreCount(expectedStoreCount, 300, 50);
@@ -550,7 +550,7 @@ public class MapStoreWriteBehindTest extends AbstractMapStoreTest {
                 .setWriteDelaySeconds(Integer.MAX_VALUE);
 
         Config config = getConfig();
-        config.getMapConfig("map").setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration("map").setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance instance = createHazelcastInstance(config);
         IMap<String, String> map = instance.getMap("map");

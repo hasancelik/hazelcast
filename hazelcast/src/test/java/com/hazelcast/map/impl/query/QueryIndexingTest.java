@@ -128,7 +128,7 @@ public class QueryIndexingTest extends HazelcastTestSupport {
 
     private static Config newConfig() {
         Config conf = new Config();
-        conf.getMapConfig("employees").setInMemoryFormat(InMemoryFormat.OBJECT).setBackupCount(0);
+        conf.getMapConfiguration("employees").setInMemoryFormat(InMemoryFormat.OBJECT).setBackupCount(0);
         // disabling replication since we don't use backups in this test
         conf.setProperty(GroupProperty.PARTITION_MAX_PARALLEL_REPLICATIONS.getName(), "0");
         return conf;

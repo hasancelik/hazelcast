@@ -121,7 +121,7 @@ public class TxnMapNearCacheLeakTest extends AbstractNearCacheLeakTest<Data, Str
         Config config = getConfig();
 
         if (withNearCache) {
-            config.getMapConfig(DEFAULT_NEAR_CACHE_NAME).setNearCacheConfig(nearCacheConfig);
+            config.getMapConfiguration(DEFAULT_NEAR_CACHE_NAME).setNearCacheConfig(nearCacheConfig);
         }
         return config;
     }

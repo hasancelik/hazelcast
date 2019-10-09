@@ -81,7 +81,7 @@ public class NearCacheTest extends NearCacheTestSupport {
         final String mapName = "testBasicUsage";
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setNearCacheConfig(newNearCacheConfig().setInvalidateOnChange(true));
+        config.getMapConfiguration(mapName).setNearCacheConfig(newNearCacheConfig().setInvalidateOnChange(true));
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory(clusterSize);
 
         final HazelcastInstance[] instances = factory.newInstances(config);
@@ -138,7 +138,7 @@ public class NearCacheTest extends NearCacheTestSupport {
         String mapName = randomMapName();
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setNearCacheConfig(newNearCacheConfig());
+        config.getMapConfiguration(mapName).setNearCacheConfig(newNearCacheConfig());
 
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory(1);
         HazelcastInstance instance = factory.newHazelcastInstance(config);
@@ -178,7 +178,7 @@ public class NearCacheTest extends NearCacheTestSupport {
         NearCacheConfig nearCacheConfig = newNearCacheConfigWithEntryCountEviction(EvictionPolicy.LRU, MAX_CACHE_SIZE);
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setNearCacheConfig(nearCacheConfig);
+        config.getMapConfiguration(mapName).setNearCacheConfig(nearCacheConfig);
 
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory(1);
         HazelcastInstance hazelcastInstance = factory.newHazelcastInstance(config);
@@ -197,7 +197,7 @@ public class NearCacheTest extends NearCacheTestSupport {
         nearCacheConfig.setInvalidateOnChange(true);
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setNearCacheConfig(nearCacheConfig);
+        config.getMapConfiguration(mapName).setNearCacheConfig(nearCacheConfig);
 
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory(2);
         HazelcastInstance hazelcastInstance1 = factory.newHazelcastInstance(config);
@@ -232,7 +232,7 @@ public class NearCacheTest extends NearCacheTestSupport {
         String mapName = randomMapName();
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setNearCacheConfig(newNearCacheConfig().setInvalidateOnChange(false));
+        config.getMapConfiguration(mapName).setNearCacheConfig(newNearCacheConfig().setInvalidateOnChange(false));
 
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory(2);
         HazelcastInstance[] instances = factory.newInstances(config);
@@ -277,7 +277,7 @@ public class NearCacheTest extends NearCacheTestSupport {
 
         Config config = getConfig();
         NearCacheConfig nearCacheConfig = newNearCacheConfig().setCacheLocalEntries(true);
-        config.getMapConfig(mapName).setNearCacheConfig(nearCacheConfig.setInvalidateOnChange(false));
+        config.getMapConfiguration(mapName).setNearCacheConfig(nearCacheConfig.setInvalidateOnChange(false));
 
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory(1);
         HazelcastInstance hazelcastInstance = factory.newHazelcastInstance(config);
@@ -293,7 +293,7 @@ public class NearCacheTest extends NearCacheTestSupport {
         String mapName = randomMapName();
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setNearCacheConfig(newNearCacheConfig().setInvalidateOnChange(true));
+        config.getMapConfiguration(mapName).setNearCacheConfig(newNearCacheConfig().setInvalidateOnChange(true));
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory(clusterSize);
 
         HazelcastInstance[] instances = factory.newInstances(config);
@@ -322,7 +322,7 @@ public class NearCacheTest extends NearCacheTestSupport {
         String mapName = randomMapName();
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setNearCacheConfig(newNearCacheConfig().setInvalidateOnChange(true));
+        config.getMapConfiguration(mapName).setNearCacheConfig(newNearCacheConfig().setInvalidateOnChange(true));
         HazelcastInstance instance = createHazelcastInstanceFactory(clusterSize).newInstances(config)[0];
 
         IMap<String, String> map = instance.getMap(mapName);
@@ -352,7 +352,7 @@ public class NearCacheTest extends NearCacheTestSupport {
         nearCacheConfig.setInvalidateOnChange(false);
 
         Config config = getConfig();
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         mapConfig.setNearCacheConfig(nearCacheConfig);
 
         HazelcastInstance[] instances = createHazelcastInstanceFactory(instanceCount).newInstances(config);
@@ -379,7 +379,7 @@ public class NearCacheTest extends NearCacheTestSupport {
         String mapName = "testNullValueNearCache";
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setNearCacheConfig(newNearCacheConfig());
+        config.getMapConfiguration(mapName).setNearCacheConfig(newNearCacheConfig());
         HazelcastInstance instance = createHazelcastInstanceFactory(clusterSize).newInstances(config)[0];
 
         IMap<String, String> map = instance.getMap(mapName);
@@ -406,7 +406,7 @@ public class NearCacheTest extends NearCacheTestSupport {
         Config config = getConfig();
         NearCacheConfig nearCacheConfig = newNearCacheConfig();
         nearCacheConfig.setInvalidateOnChange(false);
-        config.getMapConfig(mapName).setNearCacheConfig(nearCacheConfig);
+        config.getMapConfiguration(mapName).setNearCacheConfig(nearCacheConfig);
 
         TestHazelcastInstanceFactory hazelcastInstanceFactory = createHazelcastInstanceFactory(2);
         HazelcastInstance[] instances = hazelcastInstanceFactory.newInstances(config);
@@ -450,7 +450,7 @@ public class NearCacheTest extends NearCacheTestSupport {
         String mapName = "testGetAsyncWithNearCache";
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setNearCacheConfig(newNearCacheConfig().setInvalidateOnChange(false));
+        config.getMapConfiguration(mapName).setNearCacheConfig(newNearCacheConfig().setInvalidateOnChange(false));
 
         TestHazelcastInstanceFactory hazelcastInstanceFactory = createHazelcastInstanceFactory(2);
         HazelcastInstance instance1 = hazelcastInstanceFactory.newHazelcastInstance(config);
@@ -474,7 +474,7 @@ public class NearCacheTest extends NearCacheTestSupport {
         String mapName = "testGetAsyncPopulatesNearCache";
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setNearCacheConfig(newNearCacheConfig().setInvalidateOnChange(false));
+        config.getMapConfiguration(mapName).setNearCacheConfig(newNearCacheConfig().setInvalidateOnChange(false));
 
         TestHazelcastInstanceFactory hazelcastInstanceFactory = createHazelcastInstanceFactory(2);
         HazelcastInstance hz = hazelcastInstanceFactory.newHazelcastInstance(config);
@@ -658,7 +658,7 @@ public class NearCacheTest extends NearCacheTestSupport {
         String mapName = randomMapName();
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setNearCacheConfig(newNearCacheConfigWithEntryCountEviction(evictionPolicy, maxSize));
+        config.getMapConfiguration(mapName).setNearCacheConfig(newNearCacheConfigWithEntryCountEviction(evictionPolicy, maxSize));
 
         HazelcastInstance instance = createHazelcastInstance(config);
 
@@ -802,7 +802,7 @@ public class NearCacheTest extends NearCacheTestSupport {
 
         Config configWithNearCache = getConfig();
         nearCacheConfig.setCacheLocalEntries(true);
-        configWithNearCache.getMapConfig(mapName).setNearCacheConfig(nearCacheConfig);
+        configWithNearCache.getMapConfiguration(mapName).setNearCacheConfig(nearCacheConfig);
         HazelcastInstance instance2 = factory.newHazelcastInstance(configWithNearCache);
 
         IMap<Integer, Integer> nearCachedMap = instance2.getMap(mapName);
@@ -816,7 +816,7 @@ public class NearCacheTest extends NearCacheTestSupport {
         String mapName = randomMapName();
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setNearCacheConfig(newNearCacheConfig()
+        config.getMapConfiguration(mapName).setNearCacheConfig(newNearCacheConfig()
                 .setInMemoryFormat(InMemoryFormat.NATIVE)
         );
 
@@ -834,7 +834,7 @@ public class NearCacheTest extends NearCacheTestSupport {
         NearCacheConfig nearCacheConfig = newNearCacheConfig();
         nearCacheConfig.setCacheLocalEntries(true);
 
-        config.getMapConfig(mapName)
+        config.getMapConfiguration(mapName)
               .setNearCacheConfig(nearCacheConfig);
 
         HazelcastInstance node = createHazelcastInstance(config);
@@ -874,7 +874,7 @@ public class NearCacheTest extends NearCacheTestSupport {
         nearCacheConfig.setName(mapName);
 
         Config nearCachedConfig = getConfig();
-        nearCachedConfig.getMapConfig(mapName).setNearCacheConfig(nearCacheConfig);
+        nearCachedConfig.getMapConfiguration(mapName).setNearCacheConfig(nearCacheConfig);
 
         HazelcastInstance client = factory.newHazelcastInstance(nearCachedConfig);
 

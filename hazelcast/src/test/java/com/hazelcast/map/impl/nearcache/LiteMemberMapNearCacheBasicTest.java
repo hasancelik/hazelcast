@@ -106,7 +106,7 @@ public class LiteMemberMapNearCacheBasicTest extends AbstractNearCacheBasicTest<
         config.setProperty(NearCache.PROP_EXPIRATION_TASK_INITIAL_DELAY_SECONDS, "0");
         config.setProperty(NearCache.PROP_EXPIRATION_TASK_PERIOD_SECONDS, "1");
 
-        MapConfig mapConfig = config.getMapConfig(DEFAULT_NEAR_CACHE_NAME);
+        MapConfig mapConfig = config.getMapConfiguration(DEFAULT_NEAR_CACHE_NAME);
         addMapStoreConfig(mapStore, mapConfig);
         if (liteMember) {
             mapConfig.setNearCacheConfig(nearCacheConfig);

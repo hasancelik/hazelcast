@@ -53,7 +53,7 @@ public class CompositeIndexesBenchmark {
     @Setup
     public void setup() {
         Config config = new Config();
-        MapConfig mapConfig = config.getMapConfig("map");
+        MapConfig mapConfig = config.getMapConfiguration("map");
 
         mapConfig.addIndexConfig(new IndexConfig(IndexType.HASH, "f1"));
         mapConfig.addIndexConfig(new IndexConfig(IndexType.HASH, "f2"));

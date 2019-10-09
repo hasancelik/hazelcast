@@ -51,7 +51,7 @@ public class EntryProcessorStressTest extends HazelcastTestSupport {
         String mapName = randomString();
 
         Config config = new Config();
-        config.getMapConfig(mapName).setInMemoryFormat(InMemoryFormat.OBJECT);
+        config.getMapConfiguration(mapName).setInMemoryFormat(InMemoryFormat.OBJECT);
 
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory(MAX_ITERATIONS + 1);
         HazelcastInstance instance1 = factory.newHazelcastInstance(config);

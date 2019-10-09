@@ -98,7 +98,7 @@ public class MapLoaderTest extends HazelcastTestSupport {
                 .setImplementation(new DummyMapLoader());
 
         Config config = new Config();
-        config.getMapConfig(name)
+        config.getMapConfiguration(name)
                 .setMapStoreConfig(mapStoreConfig);
 
         logger.info("Starting cluster with 5 members");
@@ -149,7 +149,7 @@ public class MapLoaderTest extends HazelcastTestSupport {
                 .setImplementation(new DummyMapLoader(keysInMapStore));
 
         Config config = new Config();
-        config.getMapConfig(name)
+        config.getMapConfiguration(name)
                 .setMapStoreConfig(mapStoreConfig);
 
         TestHazelcastInstanceFactory instanceFactory = createHazelcastInstanceFactory(2);
@@ -178,7 +178,7 @@ public class MapLoaderTest extends HazelcastTestSupport {
                 .setImplementation(new MapLoaderTest.DummyMapLoader(keysInMapStore));
 
         Config config = new Config();
-        config.getMapConfig(name)
+        config.getMapConfiguration(name)
                 .setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance instance = createHazelcastInstance(config);
@@ -240,7 +240,7 @@ public class MapLoaderTest extends HazelcastTestSupport {
                 });
 
         Config config = new Config();
-        config.getMapConfig(name)
+        config.getMapConfiguration(name)
                 .setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance instance = createHazelcastInstance(config);
@@ -313,7 +313,7 @@ public class MapLoaderTest extends HazelcastTestSupport {
                 });
 
         Config config = new Config();
-        config.getMapConfig(name)
+        config.getMapConfiguration(name)
                 .setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance instance = createHazelcastInstance(config);
@@ -376,7 +376,7 @@ public class MapLoaderTest extends HazelcastTestSupport {
                 });
 
         Config config = new Config();
-        config.getMapConfig(name)
+        config.getMapConfiguration(name)
                 .setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance instance = createHazelcastInstance(config);
@@ -447,7 +447,7 @@ public class MapLoaderTest extends HazelcastTestSupport {
                 });
 
         Config config = new Config();
-        config.getMapConfig(name)
+        config.getMapConfiguration(name)
                 .setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance instance = createHazelcastInstance(config);
@@ -495,7 +495,7 @@ public class MapLoaderTest extends HazelcastTestSupport {
                 .setImplementation(new MapLoaderTest.DummyMapLoader(keysInMapStore));
 
         Config config = new Config();
-        config.getMapConfig(name)
+        config.getMapConfiguration(name)
                 .setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance instance = createHazelcastInstance(config);
@@ -538,7 +538,7 @@ public class MapLoaderTest extends HazelcastTestSupport {
         Config config = getConfig()
                 .setManagementCenterConfig(managementCenterConfig);
 
-        MapConfig mapConfig = config.getMapConfig("foo")
+        MapConfig mapConfig = config.getMapConfiguration("foo")
                 .setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance hz = createHazelcastInstance(config);
@@ -616,7 +616,7 @@ public class MapLoaderTest extends HazelcastTestSupport {
         Config config = getConfig();
         MapLoader failingMapLoader = new FailingMapLoader();
         MapStoreConfig mapStoreConfig = new MapStoreConfig().setImplementation(failingMapLoader);
-        MapConfig mapConfig = config.getMapConfig(getClass().getName()).setMapStoreConfig(mapStoreConfig);
+        MapConfig mapConfig = config.getMapConfiguration(getClass().getName()).setMapStoreConfig(mapStoreConfig);
         final ILogger logger = Logger.getLogger(LoggingLifecycleListener.class);
 
         HazelcastInstance[] hz = createHazelcastInstanceFactory(2).newInstances(config, 2);
@@ -674,7 +674,7 @@ public class MapLoaderTest extends HazelcastTestSupport {
         Config config = getConfig()
                 .setProperty(GroupProperty.PARTITION_COUNT.getName(), String.valueOf(partitionCount));
 
-        config.getMapConfig(mapName)
+        config.getMapConfiguration(mapName)
                 .setEvictionPolicy(EvictionPolicy.LRU)
                 .setMaxSizeConfig(maxSizeConfig)
                 .setMapStoreConfig(storeConfig);
@@ -742,7 +742,7 @@ public class MapLoaderTest extends HazelcastTestSupport {
     private Config createMapConfig(String mapName, SampleIndexableObjectMapLoader loader) {
         Config config = getConfig();
 
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         List<IndexConfig> indexConfigs = mapConfig.getIndexConfigs();
         indexConfigs.add(new IndexConfig(IndexType.SORTED, "name"));
 

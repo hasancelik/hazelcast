@@ -794,7 +794,7 @@ public class BasicMapTest extends HazelcastTestSupport {
     @SuppressWarnings("OverwrittenKey")
     public void testEntryView() {
         Config config = new Config();
-        config.getMapConfig("default").setStatisticsEnabled(true);
+        config.getMapConfiguration("default").setStatisticsEnabled(true);
         HazelcastInstance instance = getInstance();
 
         IMap<Integer, Integer> map = instance.getMap("testEntryView");

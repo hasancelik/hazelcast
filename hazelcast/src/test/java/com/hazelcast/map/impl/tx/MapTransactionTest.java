@@ -987,7 +987,7 @@ public class MapTransactionTest extends HazelcastTestSupport {
         final String map = "map";
         final String anotherMap = "anotherMap";
         Config config = getConfig();
-        config.getMapConfig(map).setMapStoreConfig(new MapStoreConfig()
+        config.getMapConfiguration(map).setMapStoreConfig(new MapStoreConfig()
                 .setEnabled(true).setImplementation(new MapStoreAdapter() {
                     public void store(Object key, Object value) {
                         throw new ExpectedRuntimeException("Map store intentionally failed :) ");
@@ -1294,7 +1294,7 @@ public class MapTransactionTest extends HazelcastTestSupport {
         Config config = new Config();
         MapStoreConfig storeConfig = new MapStoreConfig();
         storeConfig.setEnabled(true).setImplementation(mock);
-        config.getMapConfig(mapName).setMapStoreConfig(storeConfig);
+        config.getMapConfiguration(mapName).setMapStoreConfig(storeConfig);
         HazelcastInstance instance = createHazelcastInstance(config);
         instance.executeTransaction(new TransactionalTask<Object>() {
             @Override
@@ -1317,7 +1317,7 @@ public class MapTransactionTest extends HazelcastTestSupport {
         Config config = new Config();
         MapStoreConfig storeConfig = new MapStoreConfig();
         storeConfig.setEnabled(true).setImplementation(mock);
-        config.getMapConfig(mapName).setMapStoreConfig(storeConfig);
+        config.getMapConfiguration(mapName).setMapStoreConfig(storeConfig);
         HazelcastInstance instance = createHazelcastInstance(config);
         instance.executeTransaction(new TransactionalTask<Object>() {
             @Override
@@ -1340,7 +1340,7 @@ public class MapTransactionTest extends HazelcastTestSupport {
         Config config = getConfig();
         MapStoreConfig storeConfig = new MapStoreConfig();
         storeConfig.setEnabled(true).setImplementation(mock);
-        config.getMapConfig(mapName).setMapStoreConfig(storeConfig);
+        config.getMapConfiguration(mapName).setMapStoreConfig(storeConfig);
         HazelcastInstance instance = createHazelcastInstance(config);
         instance.executeTransaction(new TransactionalTask<Object>() {
             @Override
@@ -1362,7 +1362,7 @@ public class MapTransactionTest extends HazelcastTestSupport {
         Config config = getConfig();
         MapStoreConfig storeConfig = new MapStoreConfig();
         storeConfig.setEnabled(true).setImplementation(mock);
-        config.getMapConfig(mapName).setMapStoreConfig(storeConfig);
+        config.getMapConfiguration(mapName).setMapStoreConfig(storeConfig);
         HazelcastInstance instance = createHazelcastInstance(config);
         instance.executeTransaction(new TransactionalTask<Object>() {
             @Override

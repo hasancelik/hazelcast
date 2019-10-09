@@ -87,7 +87,7 @@ public class EvictionTest extends HazelcastTestSupport {
 
         Config config = new Config();
 
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         mapConfig.addQueryCacheConfig(cacheConfig);
 
         return config;

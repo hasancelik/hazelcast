@@ -70,7 +70,7 @@ public class WriteBehindWriteDelaySecondsTest extends HazelcastTestSupport {
         mapStoreConfig.setImplementation(store);
 
         Config config = getConfig();
-        MapConfig mapConfig = config.getMapConfig("default");
+        MapConfig mapConfig = config.getMapConfiguration("default");
         mapConfig.setMapStoreConfig(mapStoreConfig);
 
         return config;

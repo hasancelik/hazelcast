@@ -47,7 +47,7 @@ public class MapLoaderLifecycleTest extends HazelcastTestSupport {
 
     @Before
     public void configure() {
-        config.getMapConfig("map").setMapStoreConfig(new MapStoreConfig().setImplementation(loader));
+        config.getMapConfiguration("map").setMapStoreConfig(new MapStoreConfig().setImplementation(loader));
     }
 
     @Test

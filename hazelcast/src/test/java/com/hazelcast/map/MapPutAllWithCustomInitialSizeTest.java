@@ -50,7 +50,7 @@ public class MapPutAllWithCustomInitialSizeTest extends HazelcastTestSupport {
                 .setProperty(GroupProperty.OPERATION_CALL_TIMEOUT_MILLIS.getName(), "3000")
                 .setProperty("hazelcast.map.put.all.initial.size.factor", "10");
 
-        config.getMapConfig("default")
+        config.getMapConfiguration("default")
                 .setBackupCount(1)
                 .setAsyncBackupCount(0);
 

@@ -159,7 +159,7 @@ public class MapStoreEvictionTest extends HazelcastTestSupport {
                 .setImplementation(loader)
                 .setInitialLoadMode(loadMode);
 
-        MapConfig mapConfig = cfg.getMapConfig(mapName).setMapStoreConfig(mapStoreConfig);
+        MapConfig mapConfig = cfg.getMapConfiguration(mapName).setMapStoreConfig(mapStoreConfig);
 
         if (sizeLimited) {
             MaxSizeConfig maxSizeConfig = new MaxSizeConfig(MAX_SIZE_PER_NODE, MaxSizeConfig.MaxSizePolicy.PER_NODE);

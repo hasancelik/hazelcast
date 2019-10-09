@@ -69,7 +69,7 @@ public class CompositeRangePredicateTest extends HazelcastTestSupport {
         random = new Random(seed);
 
         Config config = getConfig();
-        config.getMapConfig("persons").setInMemoryFormat(inMemoryFormat);
+        config.getMapConfiguration("persons").setInMemoryFormat(inMemoryFormat);
 
         map = createHazelcastInstance(config).getMap("persons");
 

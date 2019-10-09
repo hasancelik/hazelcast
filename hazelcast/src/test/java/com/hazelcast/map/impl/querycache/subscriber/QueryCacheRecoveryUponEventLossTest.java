@@ -67,7 +67,7 @@ public class QueryCacheRecoveryUponEventLossTest extends HazelcastTestSupport {
         queryCacheConfig.setBatchSize(1111);
         queryCacheConfig.setDelaySeconds(3);
 
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         mapConfig.addQueryCacheConfig(queryCacheConfig);
         mapConfig.setBackupCount(0);
 

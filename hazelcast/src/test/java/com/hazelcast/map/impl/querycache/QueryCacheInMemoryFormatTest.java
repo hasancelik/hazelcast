@@ -62,7 +62,7 @@ public class QueryCacheInMemoryFormatTest extends HazelcastTestSupport {
         String cacheName = randomString();
 
         Config config = new Config();
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
 
         QueryCacheConfig cacheConfig = new QueryCacheConfig(cacheName);
         cacheConfig.setInMemoryFormat(inMemoryFormat);

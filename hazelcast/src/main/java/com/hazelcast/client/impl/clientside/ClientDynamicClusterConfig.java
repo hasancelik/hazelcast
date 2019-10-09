@@ -462,7 +462,7 @@ public class ClientDynamicClusterConfig extends Config {
     }
 
     @Override
-    public MapConfig getMapConfig(String name) {
+    public MapConfig getMapConfiguration(String name) {
         throw new UnsupportedOperationException(UNSUPPORTED_ERROR_MESSAGE);
     }
 

@@ -213,7 +213,7 @@ public class QueryIndexMigrationTest extends HazelcastTestSupport {
     private Config newConfigWithIndex(String mapName, String attribute) {
         Config config = getTestConfig();
         config.setProperty(GroupProperty.WAIT_SECONDS_BEFORE_JOIN.getName(), "0");
-        config.getMapConfig(mapName).addIndexConfig(new IndexConfig(IndexType.HASH, attribute));
+        config.getMapConfiguration(mapName).addIndexConfig(new IndexConfig(IndexType.HASH, attribute));
         return config;
     }
 

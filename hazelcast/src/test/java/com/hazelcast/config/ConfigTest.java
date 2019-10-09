@@ -57,11 +57,11 @@ public class ConfigTest extends HazelcastTestSupport {
         assertNotEquals("Expected that the default in-memory format is not OBJECT",
                 MapConfig.DEFAULT_IN_MEMORY_FORMAT, InMemoryFormat.OBJECT);
 
-        config.getMapConfig("myBinaryMap")
+        config.getMapConfiguration("myBinaryMap")
                 .setBackupCount(3);
-        config.getMapConfig("default")
+        config.getMapConfiguration("default")
                 .setInMemoryFormat(InMemoryFormat.OBJECT);
-        config.getMapConfig("myObjectMap")
+        config.getMapConfiguration("myObjectMap")
                 .setBackupCount(5);
 
         HazelcastInstance hz = createHazelcastInstance(config);

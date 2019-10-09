@@ -82,7 +82,7 @@ public class MemberMapInvalidationMetaDataFetcherTest extends HazelcastTestSuppo
 
     private RepairingTask getRepairingTask(String mapName, int partition, long givenSequence, UUID givenUuid) {
         Config config = getBaseConfig();
-        config.getMapConfig(mapName).setNearCacheConfig(new NearCacheConfig());
+        config.getMapConfiguration(mapName).setNearCacheConfig(new NearCacheConfig());
 
         HazelcastInstance member = factory.newHazelcastInstance(config);
         MapService mapService = getNodeEngineImpl(member).getService(MapService.SERVICE_NAME);

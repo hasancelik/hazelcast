@@ -74,7 +74,7 @@ public class ClientMapNearCacheBasicTest extends AbstractNearCacheBasicTest<Data
     protected <K, V> NearCacheTestContext<K, V, Data, String> createContext(boolean loaderEnabled) {
         IMapMapStore mapStore = loaderEnabled ? new IMapMapStore() : null;
         Config config = getConfig();
-        addMapStoreConfig(mapStore, config.getMapConfig(DEFAULT_NEAR_CACHE_NAME));
+        addMapStoreConfig(mapStore, config.getMapConfiguration(DEFAULT_NEAR_CACHE_NAME));
 
         HazelcastInstance member = hazelcastFactory.newHazelcastInstance(config);
         IMap<K, V> memberMap = member.getMap(DEFAULT_NEAR_CACHE_NAME);

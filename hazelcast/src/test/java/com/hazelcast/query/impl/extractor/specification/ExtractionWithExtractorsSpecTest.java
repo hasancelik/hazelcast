@@ -177,7 +177,7 @@ public class ExtractionWithExtractorsSpecTest extends AbstractExtractionTest {
         return new AbstractExtractionTest.Configurator() {
             @Override
             public void doWithConfig(Config config, AbstractExtractionTest.Multivalue mv) {
-                MapConfig mapConfig = config.getMapConfig("map");
+                MapConfig mapConfig = config.getMapConfiguration("map");
 
                 AttributeConfig tattoosCount = new TestAttributeIndexConfig();
                 tattoosCount.setName("tattoosCount");

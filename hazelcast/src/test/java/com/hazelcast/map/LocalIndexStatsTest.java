@@ -85,8 +85,8 @@ public class LocalIndexStatsTest extends HazelcastTestSupport {
 
         Config config = getConfig();
         config.setProperty(GroupProperty.PARTITION_COUNT.getName(), Integer.toString(PARTITIONS));
-        config.getMapConfig(mapName).setInMemoryFormat(inMemoryFormat);
-        config.getMapConfig(noStatsMapName).setStatisticsEnabled(false);
+        config.getMapConfiguration(mapName).setInMemoryFormat(inMemoryFormat);
+        config.getMapConfiguration(noStatsMapName).setStatisticsEnabled(false);
 
         instance = createInstance(config);
         map = instance.getMap(mapName);

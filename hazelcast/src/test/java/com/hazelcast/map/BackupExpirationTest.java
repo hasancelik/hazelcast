@@ -82,7 +82,7 @@ public class BackupExpirationTest extends HazelcastTestSupport {
         Config config = getConfig();
         config.setProperty(PARTITION_COUNT.getName(), Integer.toString(partitionCount));
         config.setProperty(PROP_TASK_PERIOD_SECONDS, Integer.toString(expirationTaskPeriodSeconds));
-        MapConfig mapConfig = config.getMapConfig(MAP_NAME);
+        MapConfig mapConfig = config.getMapConfiguration(MAP_NAME);
         mapConfig.setBackupCount(NODE_COUNT - 1);
         mapConfig.setMaxIdleSeconds(maxIdleSeconds);
         mapConfig.setInMemoryFormat(inMemoryFormat);

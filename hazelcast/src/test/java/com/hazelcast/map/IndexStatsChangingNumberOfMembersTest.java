@@ -70,7 +70,7 @@ public class IndexStatsChangingNumberOfMembersTest extends HazelcastTestSupport 
 
         String mapName = randomMapName();
         Config config = getConfig();
-        config.getMapConfig(mapName).setInMemoryFormat(inMemoryFormat);
+        config.getMapConfiguration(mapName).setInMemoryFormat(inMemoryFormat);
 
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory(NODE_COUNT);
         HazelcastInstance instance1 = factory.newHazelcastInstance(config);
@@ -221,7 +221,7 @@ public class IndexStatsChangingNumberOfMembersTest extends HazelcastTestSupport 
 
         String mapName = randomMapName();
         Config config = getConfig();
-        config.getMapConfig(mapName).setInMemoryFormat(inMemoryFormat);
+        config.getMapConfiguration(mapName).setInMemoryFormat(inMemoryFormat);
 
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory(NODE_COUNT);
         HazelcastInstance instance1 = factory.newHazelcastInstance(config);

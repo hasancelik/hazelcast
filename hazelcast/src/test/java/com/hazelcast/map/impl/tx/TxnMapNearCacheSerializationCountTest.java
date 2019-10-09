@@ -166,7 +166,7 @@ public class TxnMapNearCacheSerializationCountTest extends AbstractNearCacheSeri
                 .setProperty(MAP_INVALIDATION_MESSAGE_BATCH_FREQUENCY_SECONDS.getName(), String.valueOf(Integer.MAX_VALUE))
                 .setProperty(PARTITION_COUNT.getName(), "1")
                 .setProperty(PARTITION_OPERATION_THREAD_COUNT.getName(), "1");
-        MapConfig mapConfig = config.getMapConfig(DEFAULT_NEAR_CACHE_NAME)
+        MapConfig mapConfig = config.getMapConfiguration(DEFAULT_NEAR_CACHE_NAME)
                 .setInMemoryFormat(mapInMemoryFormat)
                 .setBackupCount(0)
                 .setAsyncBackupCount(0);

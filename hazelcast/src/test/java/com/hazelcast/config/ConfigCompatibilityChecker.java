@@ -786,7 +786,7 @@ public class ConfigCompatibilityChecker {
 
         @Override
         MapConfig getDefault(Config c) {
-            return c.getMapConfig("default");
+            return c.getMapConfiguration("default");
         }
     }
 

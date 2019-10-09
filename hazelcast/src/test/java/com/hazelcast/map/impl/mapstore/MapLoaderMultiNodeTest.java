@@ -179,7 +179,7 @@ public class MapLoaderMultiNodeTest extends HazelcastTestSupport {
 
         MapStoreConfig mapStoreConfig = new MapStoreConfig().setImplementation(loader).setInitialLoadMode(loadMode);
 
-        cfg.getMapConfig(mapName).setMapStoreConfig(mapStoreConfig).setBackupCount(backups);
+        cfg.getMapConfiguration(mapName).setMapStoreConfig(mapStoreConfig).setBackupCount(backups);
 
         return cfg;
     }

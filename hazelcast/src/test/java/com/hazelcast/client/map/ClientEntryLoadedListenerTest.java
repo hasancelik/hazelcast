@@ -68,12 +68,12 @@ public class ClientEntryLoadedListenerTest extends HazelcastTestSupport {
         mapStoreConfig.setEnabled(true);
         mapStoreConfig.setInitialLoadMode(MapStoreConfig.InitialLoadMode.EAGER);
         mapStoreConfig.setClassName(TestMapLoader.class.getName());
-        config.getMapConfig("default").setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration("default").setMapStoreConfig(mapStoreConfig);
 
         MapStoreConfig noInitialLoading = new MapStoreConfig();
         noInitialLoading.setEnabled(true);
         noInitialLoading.setClassName(TestMapLoaderWithoutInitialLoad.class.getName());
-        config.getMapConfig("noInitialLoading*").setMapStoreConfig(noInitialLoading);
+        config.getMapConfiguration("noInitialLoading*").setMapStoreConfig(noInitialLoading);
 
         FACTORY.newHazelcastInstance(config);
         FACTORY.newHazelcastInstance(config);

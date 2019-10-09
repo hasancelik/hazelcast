@@ -122,7 +122,7 @@ public class MapIndexLifecycleTest extends HazelcastTestSupport {
         HazelcastInstance[] instances = new HazelcastInstance[clusterSize];
 
         Config config = getConfig().setProperty(GroupProperty.PARTITION_COUNT.getName(), "4");
-        config.getMapConfig(mapName);
+        config.getMapConfiguration(mapName);
         config.getServicesConfig()
               .addServiceConfig(
                       new ServiceConfig()
@@ -266,7 +266,7 @@ public class MapIndexLifecycleTest extends HazelcastTestSupport {
 
     private HazelcastInstance createNode(TestHazelcastInstanceFactory instanceFactory) {
         Config config = getConfig().setProperty(GroupProperty.PARTITION_COUNT.getName(), "4");
-        config.getMapConfig(mapName)
+        config.getMapConfiguration(mapName)
               .addIndexConfig(getIndexConfig("author", false))
               .addIndexConfig(getIndexConfig("year", true))
               .setBackupCount(1);

@@ -64,7 +64,7 @@ public final class ConfigSearch {
 
             @Override
             public MapConfig getStaticConfig(@Nonnull Config staticConfig, @Nonnull String name) {
-                return staticConfig.getMapConfig(name);
+                return staticConfig.getMapConfiguration(name);
             }
 
             @Override

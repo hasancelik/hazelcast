@@ -139,7 +139,7 @@ public class EntryProcessorBouncingNodesTest extends HazelcastTestSupport {
     @Override
     protected Config getConfig() {
         Config config = super.getConfig();
-        MapConfig mapConfig = config.getMapConfig(MAP_NAME);
+        MapConfig mapConfig = config.getMapConfiguration(MAP_NAME);
         mapConfig.setBackupCount(2);
         if (withIndex) {
             mapConfig.addIndexConfig(new IndexConfig(IndexType.SORTED, "__key"));

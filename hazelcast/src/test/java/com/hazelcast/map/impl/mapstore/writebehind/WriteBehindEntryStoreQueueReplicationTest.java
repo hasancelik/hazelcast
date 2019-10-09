@@ -124,7 +124,7 @@ public class WriteBehindEntryStoreQueueReplicationTest extends HazelcastTestSupp
         Config config = new Config();
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         mapStoreConfig.setWriteDelaySeconds(20).setImplementation(entryStore).setEnabled(true);
-        config.getMapConfig("default").setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration("default").setMapStoreConfig(mapStoreConfig);
         return config;
     }
 }

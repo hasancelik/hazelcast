@@ -93,7 +93,7 @@ public class QueryCacheCoalescingTest extends HazelcastTestSupport {
         Config config = new Config()
                 .setProperty(PARTITION_COUNT.getName(), "1");
 
-        config.getMapConfig(mapName)
+        config.getMapConfiguration(mapName)
                 .addQueryCacheConfig(cacheConfig);
 
         return config;

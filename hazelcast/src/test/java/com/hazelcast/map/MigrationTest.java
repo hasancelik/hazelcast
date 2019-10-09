@@ -85,7 +85,7 @@ public class MigrationTest extends HazelcastTestSupport {
         int size = 100;
         String name = randomString();
         Config config = getConfig();
-        MapConfig mapConfig = config.getMapConfig(name);
+        MapConfig mapConfig = config.getMapConfiguration(name);
         mapConfig.setStatisticsEnabled(false);
 
         TestHazelcastInstanceFactory nodeFactory = createHazelcastInstanceFactory(3);

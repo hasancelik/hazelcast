@@ -160,7 +160,7 @@ abstract class MapUnboundedReturnValuesTestSupport extends HazelcastTestSupport 
 
     protected <K, V> IMap<K, V> getMapWithNodeCount(Config config, TestHazelcastInstanceFactory factory) {
         String name = randomString();
-        MapConfig mapConfig = config.getMapConfig(name);
+        MapConfig mapConfig = config.getMapConfiguration(name);
         mapConfig.setName(name);
         mapConfig.setAsyncBackupCount(0);
         mapConfig.setBackupCount(0);

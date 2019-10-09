@@ -116,7 +116,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
             }
         });
         String mapName = "default";
-        config.getMapConfig(mapName).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(mapName).setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance instance = nodeFactory.newHazelcastInstance(config);
         nodeFactory.newHazelcastInstance(config);
@@ -182,7 +182,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
         mapStoreConfig.setEnabled(true);
         mapStoreConfig.setWriteDelaySeconds(1);
         mapStoreConfig.setImplementation(store);
-        config.getMapConfig("default").setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration("default").setMapStoreConfig(mapStoreConfig);
         HazelcastInstance h1 = createHazelcastInstance(config);
         final IMap<Integer, Integer> map = h1.getMap("testSlowStore");
         int count = 1000;
@@ -216,7 +216,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
         mapStoreConfig.setEnabled(true);
         mapStoreConfig.setImplementation(new SimpleMapLoader(size, true));
         mapStoreConfig.setInitialLoadMode(MapStoreConfig.InitialLoadMode.EAGER);
-        config.getMapConfig(mapName).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(mapName).setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance instance = nodeFactory.newHazelcastInstance(config);
         nodeFactory.newHazelcastInstance(config);
@@ -239,7 +239,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
         mapStoreConfig.setEnabled(true);
         mapStoreConfig.setImplementation(new SimpleMapLoader(size, true));
         mapStoreConfig.setInitialLoadMode(MapStoreConfig.InitialLoadMode.EAGER);
-        config.getMapConfig(mapName).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(mapName).setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance instance1 = nodeFactory.newHazelcastInstance(config);
         Runnable runnable = () -> {
@@ -267,7 +267,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
         mapStoreConfig.setEnabled(true);
         mapStoreConfig.setImplementation(new SimpleMapLoader(size, true));
         mapStoreConfig.setInitialLoadMode(MapStoreConfig.InitialLoadMode.EAGER);
-        config.getMapConfig("testInitialLoadModeEagerWhileStoppigOneNode").setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration("testInitialLoadModeEagerWhileStoppigOneNode").setMapStoreConfig(mapStoreConfig);
         final HazelcastInstance instance1 = nodeFactory.newHazelcastInstance(config);
         final HazelcastInstance instance2 = nodeFactory.newHazelcastInstance(config);
         new Thread(() -> {
@@ -298,7 +298,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
         mapStoreConfig.setEnabled(true);
         mapStoreConfig.setImplementation(new SimpleMapLoader(size, true));
 
-        MapConfig mc = config.getMapConfig(mapName);
+        MapConfig mc = config.getMapConfiguration(mapName);
         mc.setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance instance = nodeFactory.newHazelcastInstance(config);
@@ -335,7 +335,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
         STORE.put(5L, "Event5");
         STORE.put(6L, "Event6");
         Config config = getConfig();
-        config.getMapConfig("map")
+        config.getMapConfiguration("map")
               .setMapStoreConfig(new MapStoreConfig()
                       .setWriteDelaySeconds(1)
                       .setImplementation(new SimpleMapStore<>(STORE)));
@@ -354,7 +354,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
         final ConcurrentMap<String, Long> store = new ConcurrentHashMap<>();
         final MapStore<String, Long> myMapStore = new SimpleMapStore<>(store);
         Config config = getConfig();
-        config.getMapConfig("myMap")
+        config.getMapConfiguration("myMap")
               .setMapStoreConfig(new MapStoreConfig()
                       .setImplementation(myMapStore));
         TestHazelcastInstanceFactory nodeFactory = createHazelcastInstanceFactory(3);
@@ -382,7 +382,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
         ConcurrentMap<String, Long> store = new ConcurrentHashMap<>();
         MapStore<String, Long> myMapStore = new SimpleMapStore<>(store);
         Config config = getConfig();
-        config.getMapConfig("myMap")
+        config.getMapConfiguration("myMap")
               .setMapStoreConfig(new MapStoreConfig()
                       .setImplementation(myMapStore));
         TestHazelcastInstanceFactory nodeFactory = createHazelcastInstanceFactory(3);
@@ -448,7 +448,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
         final MapStore<String, Long> myMapStore = new SimpleMapStore2(store);
         Config config = getConfig();
         config
-                .getMapConfig("myMap")
+                .getMapConfiguration("myMap")
                 .setMapStoreConfig(new MapStoreConfig()
                         .setImplementation(myMapStore));
         TestHazelcastInstanceFactory nodeFactory = createHazelcastInstanceFactory(3);
@@ -583,7 +583,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
     public void testMapstoreDeleteOnClear() {
         Config config = getConfig();
         SimpleMapStore store = new SimpleMapStore();
-        config.getMapConfig("testMapstoreDeleteOnClear").setMapStoreConfig(new MapStoreConfig().setEnabled(true).setImplementation(store));
+        config.getMapConfiguration("testMapstoreDeleteOnClear").setMapStoreConfig(new MapStoreConfig().setEnabled(true).setImplementation(store));
         HazelcastInstance hz = createHazelcastInstance(config);
         IMap<Object, Object> map = hz.getMap("testMapstoreDeleteOnClear");
         int size = 10;
@@ -603,7 +603,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
     public void testIssue1070() {
         final String mapName = randomMapName();
         final Config config = getConfig();
-        final MapConfig mapConfig = config.getMapConfig(mapName);
+        final MapConfig mapConfig = config.getMapConfiguration(mapName);
         final MapStoreConfig mapStoreConfig = new MapStoreConfig();
         final NoDuplicateMapStore myMapStore = new NoDuplicateMapStore();
         final MapStoreConfig implementation = mapStoreConfig.setImplementation(myMapStore);
@@ -627,7 +627,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
         final ConcurrentMap<String, String> store = new ConcurrentHashMap<>();
         final MapStore<String, String> myMapStore = new SimpleMapStore<>(store);
         Config config = getConfig();
-        config.getMapConfig("testIssue806CustomTTLForNull")
+        config.getMapConfiguration("testIssue806CustomTTLForNull")
               .setMapStoreConfig(new MapStoreConfig()
                       .setImplementation(myMapStore));
         HazelcastInstance instance = createHazelcastInstance(config);
@@ -659,7 +659,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
             }
         });
         Config config = getConfig();
-        config.getMapConfig("testIssue991EvictedNullIssue")
+        config.getMapConfiguration("testIssue991EvictedNullIssue")
               .setMapStoreConfig(mapStoreConfig);
         HazelcastInstance instance = createHazelcastInstance(config);
         IMap<Object, Object> map = instance.getMap("testIssue991EvictedNullIssue");
@@ -718,7 +718,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         mapStoreConfig.setEnabled(true);
         mapStoreConfig.setImplementation(mapStore);
-        config.getMapConfig(mapName).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(mapName).setMapStoreConfig(mapStoreConfig);
         TestHazelcastInstanceFactory nodeFactory = createHazelcastInstanceFactory(2);
         HazelcastInstance instance = nodeFactory.newHazelcastInstance(config);
         nodeFactory.newHazelcastInstance(config);
@@ -817,7 +817,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
         mapStoreConfig.setEnabled(true);
         mapStoreConfig.setImplementation(chunkedLoader);
 
-        MapConfig mapConfig = cfg.getMapConfig(mapName);
+        MapConfig mapConfig = cfg.getMapConfiguration(mapName);
         mapConfig.setMapStoreConfig(mapStoreConfig);
         return cfg;
     }
@@ -854,7 +854,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
                 return null;
             }
         });
-        config.getMapConfig(mapName).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(mapName).setMapStoreConfig(mapStoreConfig);
         TestHazelcastInstanceFactory nodeFactory = createHazelcastInstanceFactory(2);
         HazelcastInstance instance = nodeFactory.newHazelcastInstance(config);
         nodeFactory.newHazelcastInstance(config);
@@ -909,7 +909,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
         final int instanceCount = 2;
         Config config = getConfig();
         // configure map with one backup and dummy map store
-        MapConfig mapConfig = config.getMapConfig(mapName);
+        MapConfig mapConfig = config.getMapConfiguration(mapName);
         mapConfig.setBackupCount(1);
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         MapStoreWithStoreCount mapStore = new MapStoreWithStoreCount(1, 120);
@@ -954,7 +954,7 @@ public class MapStoreTest extends AbstractMapStoreTest {
     public void testEntryProcessor_calls_load_only_one_time_per_key() {
         Config config = getConfig();
         // configure map with one backup and dummy map store
-        MapConfig mapConfig = config.getMapConfig("default");
+        MapConfig mapConfig = config.getMapConfiguration("default");
 
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         MapStoreWithCounter mapStore = new MapStoreWithCounter();

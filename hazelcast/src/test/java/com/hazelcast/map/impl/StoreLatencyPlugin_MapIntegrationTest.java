@@ -81,7 +81,7 @@ public class StoreLatencyPlugin_MapIntegrationTest extends HazelcastTestSupport 
     }
 
     private static MapConfig addMapConfig(Config config) {
-        MapConfig mapConfig = config.getMapConfig("mappy");
+        MapConfig mapConfig = config.getMapConfiguration("mappy");
         mapConfig.getMapStoreConfig()
                 .setEnabled(true)
                 .setImplementation(new MapStore() {

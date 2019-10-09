@@ -123,7 +123,7 @@ public class EntryLoaderInitializationTest extends HazelcastTestSupport {
         MapStoreConfig mapStoreConfig = new MapStoreConfig();
         mapStoreConfig.setInitialLoadMode(loadMode);
         mapStoreConfig.setEnabled(true).setImplementation(entryLoader);
-        config.getMapConfig("default").setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration("default").setMapStoreConfig(mapStoreConfig);
         return config;
     }
 

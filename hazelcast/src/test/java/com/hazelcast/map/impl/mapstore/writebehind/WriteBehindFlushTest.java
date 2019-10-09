@@ -55,7 +55,7 @@ public class WriteBehindFlushTest extends HazelcastTestSupport {
         mapStoreConfig.setImplementation(mapStore).setWriteDelaySeconds(3000);
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setBackupCount(0).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(mapName).setBackupCount(0).setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance member = factory.newHazelcastInstance(config);
         factory.newHazelcastInstance(config);
@@ -90,7 +90,7 @@ public class WriteBehindFlushTest extends HazelcastTestSupport {
 
         Config config = getConfig();
         config.setProperty(GroupProperty.MAP_REPLICA_SCHEDULED_TASK_DELAY_SECONDS.getName(), "0");
-        config.getMapConfig(mapName).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(mapName).setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance member1 = factory.newHazelcastInstance(config);
         HazelcastInstance member2 = factory.newHazelcastInstance(config);
@@ -140,7 +140,7 @@ public class WriteBehindFlushTest extends HazelcastTestSupport {
         mapStoreConfig.setImplementation(mapStore).setWriteDelaySeconds(3000);
 
         Config config = getConfig();
-        config.getMapConfig(mapName).setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration(mapName).setMapStoreConfig(mapStoreConfig);
 
         HazelcastInstance node1 = factory.newHazelcastInstance(config);
         HazelcastInstance node2 = factory.newHazelcastInstance(config);
@@ -170,7 +170,7 @@ public class WriteBehindFlushTest extends HazelcastTestSupport {
         mapStoreConfig.setImplementation(store);
 
         Config config = getConfig();
-        MapConfig mapConfig = config.getMapConfig("default");
+        MapConfig mapConfig = config.getMapConfiguration("default");
         mapConfig.setMapStoreConfig(mapStoreConfig);
 
         return config;

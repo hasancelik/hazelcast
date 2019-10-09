@@ -88,7 +88,7 @@ public class PartitionIndexingTest extends HazelcastTestSupport {
     protected Config getConfig() {
         Config config = super.getConfig();
         config.setProperty(GroupProperty.PARTITION_COUNT.getName(), "101");
-        config.getMapConfig(MAP_NAME).setInMemoryFormat(inMemoryFormat);
+        config.getMapConfiguration(MAP_NAME).setInMemoryFormat(inMemoryFormat);
         config.getServicesConfig().addServiceConfig(
                 new ServiceConfig().setEnabled(true).setImplementation(migrationFailingService)
                                    .setName(MigrationFailingService.class.getName()));
@@ -102,8 +102,8 @@ public class PartitionIndexingTest extends HazelcastTestSupport {
     @Test
     public void testOnPreConfiguredIndexes() {
         Config config = getConfig();
-        config.getMapConfig(MAP_NAME).addIndexConfig(new IndexConfig(IndexType.HASH, "this"));
-        config.getMapConfig(MAP_NAME).addIndexConfig(new IndexConfig(IndexType.SORTED, "__key"));
+        config.getMapConfiguration(MAP_NAME).addIndexConfig(new IndexConfig(IndexType.HASH, "this"));
+        config.getMapConfiguration(MAP_NAME).addIndexConfig(new IndexConfig(IndexType.SORTED, "__key"));
 
         HazelcastInstance instance1 = factory.newHazelcastInstance(config);
         int expectedPartitions = getPartitionService(instance1).getPartitionCount();

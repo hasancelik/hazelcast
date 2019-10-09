@@ -61,7 +61,7 @@ public class MapSplitBrainProtectionListenerTest extends HazelcastTestSupport {
         String splitBrainProtectionName = randomString();
         SplitBrainProtectionConfig splitBrainProtectionConfig = new SplitBrainProtectionConfig(splitBrainProtectionName, true, 3);
         splitBrainProtectionConfig.addListenerConfig(listenerConfig);
-        config.getMapConfig(mapName).setSplitBrainProtectionName(splitBrainProtectionName);
+        config.getMapConfiguration(mapName).setSplitBrainProtectionName(splitBrainProtectionName);
         config.addSplitBrainProtectionConfig(splitBrainProtectionConfig);
         HazelcastInstance instance = createHazelcastInstance(config);
         IMap<Object, Object> map = instance.getMap(mapName);
@@ -89,7 +89,7 @@ public class MapSplitBrainProtectionListenerTest extends HazelcastTestSupport {
         String splitBrainProtectionName = randomString();
         SplitBrainProtectionConfig splitBrainProtectionConfig = new SplitBrainProtectionConfig(splitBrainProtectionName, true, 3);
         splitBrainProtectionConfig.addListenerConfig(listenerConfig);
-        config.getMapConfig(mapName).setSplitBrainProtectionName(splitBrainProtectionName);
+        config.getMapConfiguration(mapName).setSplitBrainProtectionName(splitBrainProtectionName);
         config.addSplitBrainProtectionConfig(splitBrainProtectionConfig);
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory();
         factory.newHazelcastInstance(config);
@@ -118,7 +118,7 @@ public class MapSplitBrainProtectionListenerTest extends HazelcastTestSupport {
         String splitBrainProtectionName = randomString();
         SplitBrainProtectionConfig splitBrainProtectionConfig = new SplitBrainProtectionConfig(splitBrainProtectionName, true, 3);
         splitBrainProtectionConfig.addListenerConfig(listenerConfig);
-        config.getMapConfig(mapName).setSplitBrainProtectionName(splitBrainProtectionName);
+        config.getMapConfiguration(mapName).setSplitBrainProtectionName(splitBrainProtectionName);
         config.addSplitBrainProtectionConfig(splitBrainProtectionConfig);
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory(3);
         factory.newHazelcastInstance(config);
@@ -193,7 +193,7 @@ public class MapSplitBrainProtectionListenerTest extends HazelcastTestSupport {
                 return false;
             }
         });
-        config.getMapConfig(mapName).setSplitBrainProtectionName(splitBrainProtectionName);
+        config.getMapConfiguration(mapName).setSplitBrainProtectionName(splitBrainProtectionName);
         config.addSplitBrainProtectionConfig(splitBrainProtectionConfig);
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory();
 
@@ -221,7 +221,7 @@ public class MapSplitBrainProtectionListenerTest extends HazelcastTestSupport {
         String splitBrainProtectionName = randomString();
         SplitBrainProtectionConfig splitBrainProtectionConfig = new SplitBrainProtectionConfig(splitBrainProtectionName, true, 3);
         splitBrainProtectionConfig.addListenerConfig(listenerConfig);
-        config.getMapConfig(mapName).setSplitBrainProtectionName(splitBrainProtectionName);
+        config.getMapConfiguration(mapName).setSplitBrainProtectionName(splitBrainProtectionName);
         config.addSplitBrainProtectionConfig(splitBrainProtectionConfig);
         TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory(3);
         factory.newHazelcastInstance(config);

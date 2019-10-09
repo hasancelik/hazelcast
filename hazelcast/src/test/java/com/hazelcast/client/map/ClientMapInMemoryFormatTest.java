@@ -50,7 +50,7 @@ public class ClientMapInMemoryFormatTest extends HazelcastTestSupport {
     @Test(expected = IllegalArgumentException.class)
     public void testIMapCreation_throwsException_whenInMemoryFormat_NATIVE() throws Exception {
         Config config = getConfig();
-        config.getMapConfig("default").setInMemoryFormat(InMemoryFormat.NATIVE);
+        config.getMapConfiguration("default").setInMemoryFormat(InMemoryFormat.NATIVE);
 
         HazelcastInstance member = factory.newHazelcastInstance(config);
         HazelcastInstance client = factory.newHazelcastClient();
@@ -64,7 +64,7 @@ public class ClientMapInMemoryFormatTest extends HazelcastTestSupport {
         nearCacheConfig.setInMemoryFormat(InMemoryFormat.NATIVE);
 
         Config config = getConfig();
-        config.getMapConfig("default").setNearCacheConfig(nearCacheConfig);
+        config.getMapConfiguration("default").setNearCacheConfig(nearCacheConfig);
 
         HazelcastInstance member = factory.newHazelcastInstance(config);
         HazelcastInstance client = factory.newHazelcastClient();

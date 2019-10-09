@@ -157,10 +157,10 @@ public class MapConfigTest {
         mapStoreConfig.setEnabled(true);
         mapStoreConfig.setWriteDelaySeconds(0);
         mapStoreConfig.setClassName("com.hazelcast.examples.DummyStore");
-        config.getMapConfig("test").setMapStoreConfig(mapStoreConfig);
-        config.getMapConfig("default").setMapStoreConfig(null);
-        assertNotNull(config.getMapConfig("test").getMapStoreConfig());
-        assertNull(config.getMapConfig("default").getMapStoreConfig());
+        config.getMapConfiguration("test").setMapStoreConfig(mapStoreConfig);
+        config.getMapConfiguration("default").setMapStoreConfig(null);
+        assertNotNull(config.getMapConfiguration("test").getMapStoreConfig());
+        assertNull(config.getMapConfiguration("default").getMapStoreConfig());
     }
 
     @Test(expected = IllegalArgumentException.class)

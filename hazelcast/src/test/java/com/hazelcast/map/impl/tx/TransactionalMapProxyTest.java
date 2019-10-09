@@ -77,7 +77,7 @@ public class TransactionalMapProxyTest extends HazelcastTestSupport {
                 .setName(mapName)
                 .setInMemoryFormat(BINARY)
                 .setInvalidateOnChange(false);
-        config.getMapConfig(mapName).setNearCacheConfig(nearCacheConfig);
+        config.getMapConfiguration(mapName).setNearCacheConfig(nearCacheConfig);
 
         TransactionalMapProxy mapProxy = getTransactionalMapProxy(config);
         assertNoMapContainersExist(mapProxy);
@@ -85,7 +85,7 @@ public class TransactionalMapProxyTest extends HazelcastTestSupport {
 
     private Config getConfigWithMapStore(InitialLoadMode loadMode) {
         Config config = new Config();
-        config.getMapConfig(mapName)
+        config.getMapConfiguration(mapName)
                 .getMapStoreConfig().setClassName("com.hazelcast.config.helpers.DummyMapStore")
                 .setInitialLoadMode(loadMode)
                 .setEnabled(true);
