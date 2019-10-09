@@ -64,7 +64,7 @@ import com.hazelcast.internal.diagnostics.SystemPropertiesPlugin;
 import com.hazelcast.internal.dynamicconfig.DynamicConfigListener;
 import com.hazelcast.internal.dynamicconfig.EmptyDynamicConfigListener;
 import com.hazelcast.internal.jmx.ManagementService;
-import com.hazelcast.internal.management.ManagementCenterConnectionFactory;
+import com.hazelcast.internal.mc.ManagementCenterConnectionFactory;
 import com.hazelcast.internal.management.TimedMemberStateFactory;
 import com.hazelcast.internal.memory.DefaultMemoryStats;
 import com.hazelcast.internal.memory.MemoryStats;

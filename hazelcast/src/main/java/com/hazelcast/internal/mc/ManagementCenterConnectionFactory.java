@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.hazelcast.internal.management;
+package com.hazelcast.internal.mc;
 
 import com.hazelcast.config.MCMutualAuthConfig;
 

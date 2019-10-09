@@ -25,7 +25,7 @@ import com.hazelcast.instance.impl.Node;
 import com.hazelcast.internal.cluster.impl.ClusterServiceImpl;
 import com.hazelcast.internal.json.Json;
 import com.hazelcast.internal.json.JsonObject;
-import com.hazelcast.internal.management.ManagementCenterConnectionFactory;
+import com.hazelcast.internal.mc.ManagementCenterConnectionFactory;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.spi.properties.GroupProperty;
 

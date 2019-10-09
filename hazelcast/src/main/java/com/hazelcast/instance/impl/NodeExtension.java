@@ -28,7 +28,7 @@ import com.hazelcast.internal.cluster.impl.JoinRequest;
 import com.hazelcast.internal.diagnostics.Diagnostics;
 import com.hazelcast.internal.dynamicconfig.DynamicConfigListener;
 import com.hazelcast.internal.jmx.ManagementService;
-import com.hazelcast.internal.management.ManagementCenterConnectionFactory;
+import com.hazelcast.internal.mc.ManagementCenterConnectionFactory;
 import com.hazelcast.internal.management.TimedMemberStateFactory;
 import com.hazelcast.internal.memory.MemoryStats;
 import com.hazelcast.internal.networking.ChannelInitializerProvider;

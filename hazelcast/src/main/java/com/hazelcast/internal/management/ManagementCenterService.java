@@ -51,6 +51,7 @@ import com.hazelcast.internal.management.request.ShutdownClusterRequest;
 import com.hazelcast.internal.management.request.ThreadDumpRequest;
 import com.hazelcast.internal.management.request.TriggerPartialStartRequest;
 import com.hazelcast.internal.management.request.WanCheckConsistencyRequest;
+import com.hazelcast.internal.mc.ManagementCenterConnectionFactory;
 import com.hazelcast.internal.nio.IOUtil;
 import com.hazelcast.internal.util.Clock;
 import com.hazelcast.internal.util.ExceptionUtil;
